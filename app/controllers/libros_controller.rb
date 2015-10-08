@@ -27,7 +27,7 @@ class LibrosController < ApplicationController
     @libro = Libro.new(libro_params)
 
     respond_to do |format|
-      if @libro.save
+      if @libro.save 
         format.html { redirect_to @libro, notice: 'Libro was successfully created.' }
         format.json { render :show, status: :created, location: @libro }
       else
