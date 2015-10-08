@@ -1,0 +1,14 @@
+<% if can? :show, User %>
+<div>
+	<h1 class= "text-center">Editing User</h1>
+
+	<%= render 'form' %>
+
+	<%= link_to 'Show', @user %> |
+	<%= link_to 'Back', users_path %>
+
+</div>
+
+<% else %>
+	<h1>No puede acceder a esta pagina</h1>
+<% end %>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-5 center-block no-float">
+    
+
+      <h1>Libros</h1>
+
+
+  <body>
+    <ul class="list-group">
+      <% @libros.each do |libro| %>
+      <li class="list-group-item">
+        <p>
+          <strong>Titulo:</strong>
+          <%= link_to libro.TitLib, libro %>
+          <br>
+          <strong>Autor:</strong>
+          <%= libro.AutLib %>
+          <br>
+          <br>
+          <tr>
+            <td><%= link_to 'Show', libro,  class: "btn btn-info" %></td>
+              <% if can? :edit, Libro %>
+            <td><%= link_to 'Edit', edit_libro_path(libro), class: "btn btn-info" %></td>
+              <%end%>
+            <% if can? :delete, Libro %>
+            <td><%= link_to 'Destroy', libro, class: "btn btn-info",  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        </p>
+      </li>
+    </ul>
+    
+      
+    <% end %>
+  <body>
+
+<br>
+<%if can? :create, Libro %>
+<%= link_to 'New Libro', new_libro_path,  class: "btn btn-info" %>
+<% end %>

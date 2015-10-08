@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-md-3 center-block no-float">
+    
+    <%= form_for(@libro) do |f| %>
+      <% if @libro.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@libro.errors.count, "error") %> prohibited this libro from being saved:</h2>
+
+          <ul>
+          <% @libro.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+  <div class="form-group">
+    <strong>Codigo del Libro</strong><br>
+    <%= f.text_field :NumCodLib, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Fecha del Libro</strong><br>
+    <%= f.date_select :fecLib, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Autor</strong><br>
+    <%= f.text_field :AutLib, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Titulo del LIbro</strong><br>
+    <%= f.text_field :TitLib, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Edicion del Libro</strong><br>
+    <%= f.text_field :EdLib, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Lugar del Libro</strong> %><br>
+    <%= f.text_field :LugLib, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Editorial</strong><br>
+    <%= f.text_field :FK_Edi, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Año</strong><br>
+    <%= f.text_field :anioLib, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Observaciones</strong><br>
+    <%= f.text_area :ObsLib, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Descripcion</strong><br>
+    <%= f.text_area :DesLib, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Cantidad</strong><br>
+    <%= f.text_field :CantLib, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Disponibles</strong><br>
+    <%= f.text_field :DisLib, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <strong>Codigo Dewey</strong><br>
+    <%= f.text_field :CodDewLib, class: "form-control" %>
+  </div>
+  <div class="text-center">
+            <%= f.submit "Agregar Libro",class: "btn btn-info" %>
+      </div>
+<% end %>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>

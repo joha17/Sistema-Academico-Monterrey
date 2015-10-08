@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-5 center-block no-float">
+<% if can? :show, User %>
+<h1>Listing Users</h1>
+
+  <body>
+    <ul class="list-group">
+      <% @users.each do |user| %>
+    </ul>      
+    <li class="list-group-item">
+      <p>
+        <strong>Nombre:</strong>
+        <%= link_to user.NomUs, user %>
+        <br>
+        <strong>Primer Apellido</strong>
+        <%= user.ApUnoUs %>
+        <br>
+        <strong>Segundo Apellido</strong>
+        <%= user.ApDosUs %>
+        <br>
+        <strong>Cedula</strong>
+        <%= user.CedUs %>
+      </p>
+      <br>
+      <br>
+      </tr>
+      <td><%= link_to 'Show', user, class: "btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-info" %></td>
+        <td><%= link_to 'Destroy', user, class: "btn btn-info", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    </li>
+      
+        
+    <% end %>
+  </body>
+
+<br>
+
+<%= link_to 'New User', new_user_path, class: "btn btn-info" %>
+
+<% else %>
+ <h1>No puedes acceder a esta pagina</h1>
+<% end %>
