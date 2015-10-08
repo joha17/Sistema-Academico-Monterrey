@@ -2,70 +2,70 @@
   <div class="col-md-6 center-block no-float">
 <p id="notice"><%= notice %></p>
 <div class="jumbotron">
-  <h1><%= @user.NomUs %></h1>
+  <h1><%= current_user.NomUs %></h1>
   <div>
 
 <p>
   <strong>Cedula:</strong>
-  <%= @user.CedUs %>
+  <%= current_user.CedUs %>
 </p>
 <p>
   <strong>Nombre:</strong>
-  <%= @user.NomUs %>
+  <%= current_user.NomUs %>
 </p>
 
 <p>
   <strong>Primer APellido:</strong>
-  <%= @user.ApUnoUs %>
+  <%= current_user.ApUnoUs %>
 </p>
 
 <p>
   <strong>Segundo Apellido:</strong>
-  <%= @user.ApDosUs %>
+  <%= current_user.ApDosUs %>
 </p>
 
 <p>
   <strong>Edad:</strong>
-  <%= @user.edadUs %>
+  <%= current_user.edadUs %>
 </p>
 
 <p>
   <strong>Rol:</strong>
-  <%= @user.role %>
+  <%= current_user.role %>
 </p>
 <p>
   <strong>Nivel:</strong>
-  <%= @user.FK_NivUs %>
+  <%= current_user.FK_NivUs %>
 </p>
 
 <p>
   <strong>Fecha Ingreso:</strong>
-  <%= @user.dt_ingUs %>
+  <%= current_user.dt_ingUs %>
 </p>
 
 <p>
   <strong>Fecha Salida:</strong>
-  <%= @user.dt_salUs %>
+  <%= current_user.dt_salUs %>
 </p>
 
 <p>
   <strong>Seccion:</strong>
-  <%= @user.SecUs %>
+  <%= current_user.SecUs %>
 </p>
 
 <p>
   <strong>Telefono:</strong>
-  <%= @user.TelUs %>
+  <%= current_user.TelUs %>
 </p>
 
 <p>
   <strong>Direccion:</strong>
-  <%= @user.FK_DirUs %>
+  <%= current_user.FK_DirUs %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @user.email %>
+  <%= current_user.email %>
 </p>
 
 </div>

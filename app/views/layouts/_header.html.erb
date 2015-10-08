@@ -17,18 +17,19 @@
       <ul class="nav navbar-nav">
      <li><%= link_to "Inicio", root_path %></li>
       <% if current_user %>
-          <li><%= link_to current_user.NomUs %></li>
+         
      	  <% if can? :read, User %>
      	  	<li><%= link_to "Usuarios", users_path %></li>
      	  <% end %>
      	  <% if can? :show, Libro %>
           	<li><%= link_to "Libros", libros_path %></li>
           <% end %>	
+           <li><%= link_to current_user.NomUs, current_user_info_path %></li>
           <li><%= link_to "Cerrar Sesion", logout_path %></li>
           <%else%>
           	<li><%= link_to "Iniciar Sesion", login_path %></li>
           <%end%>
-          
+
       </ul>
      
       </form>

@@ -50,10 +50,12 @@
     <strong>Seccion:</strong>
     <%= f.text_field :SecUs, autofocus: true, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <strong>Rol:</strong>
-    <%= f.text_field :role, autofocus: true, class: "form-control" %>
-  </div>
+ <div class="form--group">
+  <strong>Role:</strong>
+  <%= f.select :role, options_for_select([["Administrador", "administrador"], ["Estudiante", "estudiante"], ["Profesor", "profesor"]]), class: "form-control" %>
+ </div>
+  
+
   <div class="form-group">
     <strong>Telefono:</strong>
     <%= f.text_field :TelUs, autofocus: true, class: "form-control" %>
