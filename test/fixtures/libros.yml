@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  NumCodLib: MyString
+  fecLib: MyString
+  AutLib: MyString
+
+two:
+  NumCodLib: MyString
+  fecLib: MyString
+  AutLib: MyString
