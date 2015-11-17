@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+<div class="jumbotron text-center">
+  <h1><%= current_user.NomUs %></h1>
+    <%= link_to image_tag(current_user.photo.url(:thumb), class: "img-circle"), current_user.photo.url %>
+  <div>
+  <br>
+
+<p>
+  <strong>Cedula:</strong>
+  <%= current_user.CedUs %>
+</p>
+<p>
+  <strong>Nombre:</strong>
+  <%= current_user.NomUs %>
+</p>
+
+<p>
+  <strong>Primer Apellido:</strong>
+  <%= current_user.ApUnoUs %>
+</p>
+
+<p>
+  <strong>Segundo Apellido:</strong>
+  <%= current_user.ApDosUs %>
+</p>
+
+<p>
+  <strong>Edad:</strong>
+  <%= current_user.edadUs %>
+</p>
+
+<p>
+  <strong>Rol:</strong>
+  <%= current_user.role %>
+</p>
+<p>
+  <strong>Nivel:</strong>
+  <%= current_user.FK_NivUs %>
+</p>
+
+<p>
+  <strong>Fecha Ingreso:</strong>
+  <%= current_user.dt_ingUs %>
+</p>
+
+<p>
+  <strong>Fecha Salida:</strong>
+  <%= current_user.dt_salUs %>
+</p>
+
+<p>
+  <strong>Seccion:</strong>
+  <%= current_user.SecUs %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= current_user.TelUs %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= current_user.FK_DirUs %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= current_user.email %>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomconsulta:</strong>
+  <%= @consult.NomConsulta %>
+</p>
+
+<p>
+  <strong>Desconsulta:</strong>
+  <%= @consult.DesConsulta %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @consult.user.NomUs %>
+</p>
+
+<%= link_to 'Edit', edit_consult_path(@consult) %> |
+<%= link_to 'Back', consults_path %>

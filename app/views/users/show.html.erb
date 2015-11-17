@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+<div class="jumbotron text-center">
+  <h1><%= @user.NomUs %></h1>
+  <%= link_to image_tag(@user.photo.url(:thumb),class: "img-circle"), @user.photo.url %>
+  <div>
+
+<p>
+  <strong>Cedula:</strong>
+  <%= @user.CedUs %>
+</p>
+<p>
+  <strong>Nombre:</strong>
+  <%= @user.NomUs %>
+</p>
+
+<p>
+  <strong>Primer Apellido:</strong>
+  <%= @user.ApUnoUs %>
+</p>
+
+<p>
+  <strong>Segundo Apellido:</strong>
+  <%= @user.ApDosUs %>
+</p>
+
+<p>
+  <strong>Edad:</strong>
+  <%= @user.edadUs %>
+</p>
+
+<p>
+  <strong>Rol:</strong>
+  <%= @user.role %>
+</p>
+<p>
+  <strong>Nivel:</strong>
+  <%= @user.FK_NivUs %>
+</p>
+
+<p>
+  <strong>Fecha Ingreso:</strong>
+  <%= @user.dt_ingUs %>
+</p>
+
+<p>
+  <strong>Fecha Salida:</strong>
+  <%= @user.dt_salUs %>
+</p>
+
+<p>
+  <strong>Seccion:</strong>
+  <%= @user.SecUs %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @user.TelUs %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @user.FK_DirUs %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<br>
+<br>

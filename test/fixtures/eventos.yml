@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  LugEven: MyString
+  FechEven: MyString
+
+two:
+  LugEven: MyString
+  FechEven: MyString

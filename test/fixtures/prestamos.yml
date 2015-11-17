@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  i_FK_lib: 1
+  CedUs: 1
+  FecSol: 2015-10-20 22:56:10
+  FecDev: 2015-10-20 22:56:10
+  FecPre: 2015-10-20 22:56:10
+  i_FK_Prestamo: 1
+
+two:
+  i_FK_lib: 1
+  CedUs: 1
+  FecSol: 2015-10-20 22:56:10
+  FecDev: 2015-10-20 22:56:10
+  FecPre: 2015-10-20 22:56:10
+  i_FK_Prestamo: 1

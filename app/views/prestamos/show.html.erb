@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>I fk lib:</strong>
+  <%= @prestamo.i_FK_lib %>
+</p>
+
+<p>
+  <strong>Cedus:</strong>
+  <%= @prestamo.CedUs %>
+</p>
+
+<p>
+  <strong>Fecsol:</strong>
+  <%= @prestamo.FecSol %>
+</p>
+
+<p>
+  <strong>Fecdev:</strong>
+  <%= @prestamo.FecDev %>
+</p>
+
+<p>
+  <strong>Fecpre:</strong>
+  <%= @prestamo.FecPre %>
+</p>
+
+<p>
+  <strong>I fk prestamo:</strong>
+  <%= @prestamo.i_FK_Prestamo %>
+</p>
+
+<%= link_to 'Edit', edit_prestamo_path(@prestamo) %> |
+<%= link_to 'Back', prestamos_path %>

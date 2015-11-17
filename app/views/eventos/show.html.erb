@@ -1,0 +1,31 @@
+
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @evento.NomEven %>
+</p>
+
+
+<p>
+  <strong>Lugar del evento:</strong>
+  <%= @evento.LugEven %>
+</p>
+
+<p>
+  <strong>Fecha del evento:</strong>
+  <!-- Formatos para mostrar fecha "http://apidock.com/ruby/DateTime/strftime"-->
+  <%= @evento.FechEven.strftime("%D a las  %H:%M") %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @evento.DescEven %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @evento.NomUs %>
+</p>
+
+<%= link_to 'Edit', edit_evento_path(@evento) %> |
+<%= link_to 'Back', eventos_path %>

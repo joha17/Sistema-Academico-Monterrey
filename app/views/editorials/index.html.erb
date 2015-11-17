@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Editorials</h1>
+
+  <body>
+    <ul class="list-group">
+      <% @editorials.each do |editorial| %>
+      <li class="list-group-item">
+        <p>
+          <strong>Editorial:</strong>
+          <%= link_to editorial.NomEdi, editorial %>
+          <br>
+          <br>
+          <tr>
+            <td><%= link_to 'Ver', editorial,  class: "btn btn-info" %></td>
+              <% if can? :edit, Editorial %>
+            <td><%= link_to 'Editar', edit_editorial_path(editorial), class: "btn btn-info" %></td>
+              <%end%>
+            <% if can? :delete, Editorial %>
+            <td><%= link_to 'Eliminar', editorial, class: "btn btn-info",  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        </p>
+      </li>
+    </ul>
+    
+      
+    <% end %>
+  <body>
+
+<br>
+
+<%= link_to 'New Editorial', new_editorial_path %>
