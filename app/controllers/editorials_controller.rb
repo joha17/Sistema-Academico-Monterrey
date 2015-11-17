@@ -1,19 +1,20 @@
 class EditorialsController < ApplicationController
-
-    respond_to :html, :json
-    before_action :set_editorial, only: [:show, :edit, :update, :destroy]
+  before_action :set_editorial, only: [:show, :edit, :update, :destroy]
 
   # GET /editorials
   # GET /editorials.json
   def index
-    #@editorials = Editorial.all
     @editorials = Editorial.all
   end
 
   # GET /editorials/1
   # GET /editorials/1.json
-
   def show
+  end
+
+  # GET /editorials/new
+  def new
+    @editorial = Editorial.new
   end
 
   # GET /editorials/1/edit
@@ -22,17 +23,12 @@ class EditorialsController < ApplicationController
 
   # POST /editorials
   # POST /editorials.json
-  def new
-    @editorial = Editorial.new
-  end
-
   def create
-   @editorial = Editorial.create(editorial_params)
-   @editorial = Editorial.new(editorial_params)
+    @editorial = Editorial.new(editorial_params)
 
     respond_to do |format|
-      if @editorial.save 
-        format.html { redirect_to @editorial, success: 'El Libro fue almacenado correctamente' }
+      if @editorial.save
+        format.html { redirect_to @editorial, notice: 'Editorial was successfully created.' }
         format.json { render :show, status: :created, location: @editorial }
       else
         format.html { render :new }
@@ -40,10 +36,10 @@ class EditorialsController < ApplicationController
       end
     end
   end
+
   # PATCH/PUT /editorials/1
   # PATCH/PUT /editorials/1.json
   def update
-     @editorial = Editorial.update(params[:id], editorial_params)
     respond_to do |format|
       if @editorial.update(editorial_params)
         format.html { redirect_to @editorial, notice: 'Editorial was successfully updated.' }
@@ -65,7 +61,6 @@ class EditorialsController < ApplicationController
     end
   end
 
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_editorial
@@ -74,6 +69,6 @@ class EditorialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def editorial_params
-      params[:editorial].permit(:NomEdi)
+      params.require(:editorial).permit(:NomEdi)
     end
 end

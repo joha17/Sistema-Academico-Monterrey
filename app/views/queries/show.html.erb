@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomcon:</strong>
+  <%= @query.NomCon %>
+</p>
+
+<p>
+  <strong>Descon:</strong>
+  <%= @query.DesCon %>
+</p>
+
+<p>
+  <strong>Feccon:</strong>
+  <%= @query.FecCon %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @query.user.NomUs %>
+</p>
+
+<p>
+  <strong>Query state:</strong>
+  <%= @query.query_state.DeState %>
+</p>
+
+<%= link_to 'Edit', edit_query_path(@query) %> |
+<%= link_to 'Back', queries_path %>

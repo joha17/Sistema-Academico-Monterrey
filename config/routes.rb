@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  resources :consults
+  resources :libros
+  resources :editorials
+  resources :queries
+  resources :query_states
+  resources :items
+  resources :categories
+  resources :places
   resources :eventos
 
-  resources :prestamos
-  resources :editorials
-  resources :libros
 
 
   resources :sessions, only: [:new, :create, :destroy]

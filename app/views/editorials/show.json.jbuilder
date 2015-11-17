@@ -1,1 +1,1 @@
-json.extract! @editorial, :id, :created_at, :updated_at
+json.extract! @editorial, :id, :NomEdi, :created_at, :updated_at

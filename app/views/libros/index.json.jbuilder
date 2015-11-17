@@ -1,4 +1,4 @@
 json.array!(@libros) do |libro|
-  json.extract! libro, :id, :NomLib, :fecLib, :AutLib, :TitLib, :EdiLib, :LugLib, :id_edi, :anioLib, :ObsLib, :Deslib, :CantLib, :DisLib, :CodDewLib
+  json.extract! libro, :id, :TitLib, :AutLib, :EdicLib, :AnioLib, :FecLib, :LugLib, :ObsLib, :DesLib, :CantLib, :Disp, :CodDewLib, :editorial_id
   json.url libro_url(libro, format: :json)
 end

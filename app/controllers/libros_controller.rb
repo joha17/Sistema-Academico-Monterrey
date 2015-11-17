@@ -5,11 +5,12 @@ class LibrosController < ApplicationController
   # GET /libros.json
   def index
     @libros = Libro.all
-    
   end
 
   # GET /libros/1
   # GET /libros/1.json
+  def show
+  end
 
   # GET /libros/new
   def new
@@ -18,7 +19,6 @@ class LibrosController < ApplicationController
 
   # GET /libros/1/edit
   def edit
-
   end
 
   # POST /libros
@@ -27,8 +27,8 @@ class LibrosController < ApplicationController
     @libro = Libro.new(libro_params)
 
     respond_to do |format|
-      if @libro.save 
-        format.html { redirect_to @libro, success: 'El Libro fue almacenado correctamente' }
+      if @libro.save
+        format.html { redirect_to @libro, notice: 'Libro was successfully created.' }
         format.json { render :show, status: :created, location: @libro }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class LibrosController < ApplicationController
   def update
     respond_to do |format|
       if @libro.update(libro_params)
-        format.html { redirect_to @libro, info: 'El Libro fue editado correctamente.'}
+        format.html { redirect_to @libro, notice: 'Libro was successfully updated.' }
         format.json { render :show, status: :ok, location: @libro }
       else
         format.html { render :edit }
@@ -51,13 +51,12 @@ class LibrosController < ApplicationController
     end
   end
 
-
   # DELETE /libros/1
   # DELETE /libros/1.json
   def destroy
     @libro.destroy
     respond_to do |format|
-      format.html { redirect_to libros_url, danger: 'El Libro fue eliminado correctamente' }
+      format.html { redirect_to libros_url, notice: 'Libro was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,11 +69,6 @@ class LibrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def libro_params
-      params[:libro].permit(:NomLib,:fecLib,:AutLib,:TitLib,:EdiLib,:NomEdi,:LugLib,:anioLib,:ObsLib,:Deslib,:CantLib,:DisLib,:CodDewLib)
-    end
-
-    def editorial_params
-      params[:editorial].permit(:NomEdi)
-      params[:libro].permit(:NomLib,:fecLib,:AutLib,:TitLib,:EdiLib,:LugLib,:anioLib,:ObsLib,:Deslib,:CantLib,:DisLib,:CodDewLib)
+      params.require(:libro).permit(:TitLib, :AutLib, :EdicLib, :AnioLib, :FecLib, :LugLib, :ObsLib, :DesLib, :CantLib, :Disp, :CodDewLib, :editorial_id)
     end
 end

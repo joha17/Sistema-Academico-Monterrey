@@ -18,7 +18,7 @@ class EditorialsControllerTest < ActionController::TestCase
 
   test "should create editorial" do
     assert_difference('Editorial.count') do
-      post :create, editorial: {  }
+      post :create, editorial: { NomEdi: @editorial.NomEdi }
     end
 
     assert_redirected_to editorial_path(assigns(:editorial))
@@ -35,7 +35,7 @@ class EditorialsControllerTest < ActionController::TestCase
   end
 
   test "should update editorial" do
-    patch :update, id: @editorial, editorial: {  }
+    patch :update, id: @editorial, editorial: { NomEdi: @editorial.NomEdi }
     assert_redirected_to editorial_path(assigns(:editorial))
   end
 

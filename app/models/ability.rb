@@ -11,7 +11,7 @@ class Ability
     #si es profesor puede ver libros y eventos
      can :show, Libro
      can [:create, :show, :update], Evento
-     can [:create, :show, :update], Consult
+     can [:create, :show, :update], Query
      #can :manage, Evento, :id => user.id    
      #can :update, Evento, users: user.id
    else user.role == "estudiante"

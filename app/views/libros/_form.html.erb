@@ -1,57 +1,65 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <%= form_for @libro do |f| %>
-          <div class="form-group">
-            <strong>Fecha del Libro</strong><br>
-            <%= f.date_select :fecLib,  class: "form-control input-lg", placeholder: "Fecha del libro" %>
-          </div>
-            <div class="form-group">
-              <%= f.text_field :AutLib,  class: "form-control input-lg", placeholder: "Autor" %>
-            </div>
-            <div class="form-group">
-              <%= f.text_field :TitLib, class: "form-control input-lg", placeholder: "Titulo" %>
-            </div>
-            <div class="form-group">
-            <strong>Editorial:</strong>
-              <%= collection_select(:lang_id, 0, Editorial.all, :id, :NomEdi) %><br>
-              <%= f.text_field :NomEdi,  class: "form-control input-lg", placeholder: "Agregar nueva Editorial" %>
-            </div>
-            <div class="form-group">
-              <%= f.text_field :EdiLib,  class: "form-control input-lg", placeholder: "Edicion" %>
-            </div>
-            <div class="form-group">
-              <%= f.text_field :LugLib,  class: "form-control input-lg", placeholder: "Lugar"%>
-            </div>
-            <div class="form-group">
-            <%= f.text_field :anioLib,  class: "form-control input-lg", placeholder: "A;o"%>
-          </div>
-          <div class="form-group">
-            <%= f.text_area :ObsLib,  class: "form-control input-lg", placeholder: "Observaciones"%>
-          </div>
-          <div class="form-group">
-            <%= f.text_area :Deslib, class: "form-control input-lg", placeholder: "Descripcion"%>
-          </div>
-          <div class="form-group">
-            <%= f.text_field :CantLib,  class: "form-control input-lg", placeholder: "Cantidad" %>
-          </div>
-          <div class="form-group">
-            <%= f.text_field :DisLib,  class: "form-control input-lg", placeholder: "Disponibles"%>
-          </div>
-          <div class="form-group">
-            <%= f.text_field :CodDewLib, class: "form-control input-lg", placeholder: "Codigo Deway"%>
-          </div>
+<%= form_for(@libro) do |f| %>
+  <% if @libro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@libro.errors.count, "error") %> prohibited this libro from being saved:</h2>
 
-        <div class="text-center">
-          <%= f.submit "Aceptar",class: "btn btn-primary" %>
-        </div>
+      <ul>
+      <% @libro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-
+  <div class="field">
+    <%= f.label :TitLib %><br>
+    <%= f.text_field :TitLib %>
   </div>
-</div>
-</div>
-<br>
-<br>
-<br>
-<br>
+  <div class="field">
+    <%= f.label :AutLib %><br>
+    <%= f.text_field :AutLib %>
+  </div>
+  <div class="field">
+    <%= f.label :EdicLib %><br>
+    <%= f.text_field :EdicLib %>
+  </div>
+  <div class="field">
+    <%= f.label :AnioLib %><br>
+    <%= f.number_field :AnioLib %>
+  </div>
+  <div class="field">
+    <%= f.label :FecLib %><br>
+    <%= f.datetime_select :FecLib %>
+  </div>
+  <div class="field">
+    <%= f.label :LugLib %><br>
+    <%= f.text_field :LugLib %>
+  </div>
+  <div class="field">
+    <%= f.label :ObsLib %><br>
+    <%= f.text_area :ObsLib %>
+  </div>
+  <div class="field">
+    <%= f.label :DesLib %><br>
+    <%= f.text_area :DesLib %>
+  </div>
+  <div class="field">
+    <%= f.label :CantLib %><br>
+    <%= f.number_field :CantLib %>
+  </div>
+  <div class="field">
+    <%= f.label :Disp %><br>
+    <%= f.number_field :Disp %>
+  </div>
+  <div class="field">
+    <%= f.label :CodDewLib %><br>
+    <%= f.text_field :CodDewLib %>
+  </div>
+  <div class="field">
+    <strong>Editorial</strong> <br>
+    <%= collection_select(:libro, :editorial_id, Editorial.all, :id, :NomEdi, prompt: true) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

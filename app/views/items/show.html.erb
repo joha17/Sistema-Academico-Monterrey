@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomitem:</strong>
+  <%= @item.nomItem %>
+</p>
+
+<p>
+  <strong>Desitem:</strong>
+  <%= @item.desItem %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @item.user.NomUs %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @item.place.NomPlace %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @item.category.nomCategory %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

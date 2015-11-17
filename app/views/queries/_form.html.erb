@@ -1,0 +1,34 @@
+<%= form_for(@query) do |f| %>
+  <% if @query.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@query.errors.count, "error") %> prohibited this query from being saved:</h2>
+
+      <ul>
+      <% @query.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :NomCon %><br>
+    <%= f.text_field :NomCon %>
+  </div>
+  <div class="field">
+    <%= f.label :DesCon %><br>
+    <%= f.text_field :DesCon %>
+  </div>
+  <div class="field">
+    <%= f.label :FecCon %><br>
+    <%= f.date_select :FecCon %>
+  </div>
+
+  <div class="field">
+    <%= f.label :query_state_id %><br>
+    <%= collection_select(:query, :query_state_id, QueryState.all, :id, :DeState, prompt: true) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

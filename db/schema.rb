@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117050136) do
+ActiveRecord::Schema.define(version: 20151117121108) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "nomCategory"
+    t.text     "desCategory"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "consults", force: :cascade do |t|
     t.string   "NomConsulta"
@@ -39,29 +46,69 @@ ActiveRecord::Schema.define(version: 20151117050136) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "items", force: :cascade do |t|
+    t.string   "nomItem"
+    t.text     "desItem"
+    t.integer  "canItem"
+    t.integer  "user_id"
+    t.integer  "place_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "items", ["category_id"], name: "index_items_on_category_id"
+  add_index "items", ["place_id"], name: "index_items_on_place_id"
+  add_index "items", ["user_id"], name: "index_items_on_user_id"
+
   create_table "libros", force: :cascade do |t|
-    t.string   "NomLib"
-    t.datetime "fecLib"
-    t.string   "AutLib"
     t.string   "TitLib"
-    t.string   "EdiLib"
+    t.string   "AutLib"
+    t.string   "EdicLib"
+    t.integer  "AnioLib"
+    t.datetime "FecLib"
     t.string   "LugLib"
-    t.integer  "id_edi"
-    t.integer  "anioLib"
-    t.string   "ObsLib"
-    t.string   "Deslib"
+    t.text     "ObsLib"
+    t.text     "DesLib"
     t.integer  "CantLib"
-    t.string   "DisLib"
+    t.integer  "Disp"
     t.string   "CodDewLib"
+    t.integer  "editorial_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "libros", ["editorial_id"], name: "index_libros_on_editorial_id"
+
+  create_table "places", force: :cascade do |t|
+    t.string   "NomPlace"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "NomEdi"
   end
 
   create_table "prestamos", force: :cascade do |t|
     t.datetime "FecSol"
     t.datetime "FecDev"
     t.datetime "FecPre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "queries", force: :cascade do |t|
+    t.string   "NomCon"
+    t.string   "DesCon"
+    t.date     "FecCon"
+    t.integer  "user_id"
+    t.integer  "query_state_id", default: 1
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "queries", ["query_state_id"], name: "index_queries_on_query_state_id"
+  add_index "queries", ["user_id"], name: "index_queries_on_user_id"
+
+  create_table "query_states", force: :cascade do |t|
+    t.string   "DeState"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

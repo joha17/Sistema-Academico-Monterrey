@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :eventos
   has_many :consults
+  has_many :items
 
   validates :CedUs,
             presence: true,
@@ -31,6 +32,8 @@ class User < ActiveRecord::Base
   #def to_s
   #  "#{NomUs}"
   #end
+
+  
 
     def roles=(roles)
     self.roles_mask = (roles )

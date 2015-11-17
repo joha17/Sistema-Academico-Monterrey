@@ -11,12 +11,10 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <strong>Nombre de Editorial:</strong>
-    <%= f.text_field :NomEdi, autofocus: true, class: "form-control" %>
+  <div class="field">
+    <%= f.label :NomEdi %><br>
+    <%= f.text_field :NomEdi %>
   </div>
-
-
   <div class="actions">
     <%= f.submit %>
   </div>

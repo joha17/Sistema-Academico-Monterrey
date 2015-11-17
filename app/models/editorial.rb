@@ -1,3 +1,3 @@
 class Editorial < ActiveRecord::Base
-	belongs_to :libro
+	has_many :libros
 end

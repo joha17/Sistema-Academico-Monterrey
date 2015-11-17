@@ -18,7 +18,7 @@ class LibrosControllerTest < ActionController::TestCase
 
   test "should create libro" do
     assert_difference('Libro.count') do
-      post :create, libro: { AutLib: @libro.AutLib, CantLib: @libro.CantLib, CodDewLib: @libro.CodDewLib, Deslib: @libro.Deslib, DisLib: @libro.DisLib, EdiLib: @libro.EdiLib, LugLib: @libro.LugLib, NomLib: @libro.NomLib, ObsLib: @libro.ObsLib, TitLib: @libro.TitLib, anioLib: @libro.anioLib, fecLib: @libro.fecLib, id_edi: @libro.id_edi }
+      post :create, libro: { AnioLib: @libro.AnioLib, AutLib: @libro.AutLib, CantLib: @libro.CantLib, CodDewLib: @libro.CodDewLib, DesLib: @libro.DesLib, Disp: @libro.Disp, EdicLib: @libro.EdicLib, FecLib: @libro.FecLib, LugLib: @libro.LugLib, ObsLib: @libro.ObsLib, TitLib: @libro.TitLib, editorial_id: @libro.editorial_id }
     end
 
     assert_redirected_to libro_path(assigns(:libro))
@@ -35,7 +35,7 @@ class LibrosControllerTest < ActionController::TestCase
   end
 
   test "should update libro" do
-    patch :update, id: @libro, libro: { AutLib: @libro.AutLib, CantLib: @libro.CantLib, CodDewLib: @libro.CodDewLib, Deslib: @libro.Deslib, DisLib: @libro.DisLib, EdiLib: @libro.EdiLib, LugLib: @libro.LugLib, NomLib: @libro.NomLib, ObsLib: @libro.ObsLib, TitLib: @libro.TitLib, anioLib: @libro.anioLib, fecLib: @libro.fecLib, id_edi: @libro.id_edi }
+    patch :update, id: @libro, libro: { AnioLib: @libro.AnioLib, AutLib: @libro.AutLib, CantLib: @libro.CantLib, CodDewLib: @libro.CodDewLib, DesLib: @libro.DesLib, Disp: @libro.Disp, EdicLib: @libro.EdicLib, FecLib: @libro.FecLib, LugLib: @libro.LugLib, ObsLib: @libro.ObsLib, TitLib: @libro.TitLib, editorial_id: @libro.editorial_id }
     assert_redirected_to libro_path(assigns(:libro))
   end
 
