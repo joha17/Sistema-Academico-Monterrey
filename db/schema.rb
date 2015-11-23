@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117121108) do
+ActiveRecord::Schema.define(version: 20151123110528) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "nomCategory"
@@ -80,19 +80,37 @@ ActiveRecord::Schema.define(version: 20151117121108) do
 
   add_index "libros", ["editorial_id"], name: "index_libros_on_editorial_id"
 
+  create_table "line_items", id: false, force: :cascade do |t|
+    t.integer "id",                   null: false
+    t.integer "quantity", default: 1
+  end
+
   create_table "places", force: :cascade do |t|
     t.string   "NomPlace"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "prestamos", force: :cascade do |t|
-    t.datetime "FecSol"
-    t.datetime "FecDev"
-    t.datetime "FecPre"
+  create_table "prestamo_estados", force: :cascade do |t|
+    t.string   "nomEstPres"
+    t.text     "desEstPres"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "prestamos", force: :cascade do |t|
+    t.date     "fecSol"
+    t.date     "fecDev"
+    t.integer  "user_id"
+    t.integer  "libro_id"
+    t.integer  "prestamo_estado_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "prestamos", ["libro_id"], name: "index_prestamos_on_libro_id"
+  add_index "prestamos", ["prestamo_estado_id"], name: "index_prestamos_on_prestamo_estado_id"
+  add_index "prestamos", ["user_id"], name: "index_prestamos_on_user_id"
 
   create_table "queries", force: :cascade do |t|
     t.string   "NomCon"
@@ -112,6 +130,15 @@ ActiveRecord::Schema.define(version: 20151117121108) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "nomRole"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "roles", ["user_id"], name: "index_roles_on_user_id"
 
 # Could not dump table "users" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass

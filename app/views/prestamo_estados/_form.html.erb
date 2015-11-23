@@ -1,0 +1,25 @@
+<%= form_for(@prestamo_estado) do |f| %>
+  <% if @prestamo_estado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prestamo_estado.errors.count, "error") %> prohibited this prestamo_estado from being saved:</h2>
+
+      <ul>
+      <% @prestamo_estado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nomEstPres %><br>
+    <%= f.text_field :nomEstPres %>
+  </div>
+  <div class="field">
+    <%= f.label :desEstPres %><br>
+    <%= f.text_area :desEstPres %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

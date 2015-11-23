@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :roles
+  resources :prestamos
+  resources :prestamo_estados
   resources :libros
   resources :editorials
   resources :queries

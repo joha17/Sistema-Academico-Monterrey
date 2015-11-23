@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomestpres:</strong>
+  <%= @prestamo_estado.nomEstPres %>
+</p>
+
+<p>
+  <strong>Desestpres:</strong>
+  <%= @prestamo_estado.desEstPres %>
+</p>
+
+<%= link_to 'Edit', edit_prestamo_estado_path(@prestamo_estado) %> |
+<%= link_to 'Back', prestamo_estados_path %>

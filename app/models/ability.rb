@@ -12,11 +12,13 @@ class Ability
      can :show, Libro
      can [:create, :show, :update], Evento
      can [:create, :show, :update], Query
+     can [:create, :show, :update], Prestamo
      #can :manage, Evento, :id => user.id    
      #can :update, Evento, users: user.id
    else user.role == "estudiante"
     #si es es estudiante solo ver libro
       can :show, Libro
+      can [:create, :show, :update], Prestamo
     end
   end 
 end

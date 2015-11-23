@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Prestamo Estados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nomestpres</th>
+      <th>Desestpres</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prestamo_estados.each do |prestamo_estado| %>
+      <tr>
+        <td><%= prestamo_estado.nomEstPres %></td>
+        <td><%= prestamo_estado.desEstPres %></td>
+        <td><%= link_to 'Show', prestamo_estado %></td>
+        <td><%= link_to 'Edit', edit_prestamo_estado_path(prestamo_estado) %></td>
+        <td><%= link_to 'Destroy', prestamo_estado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prestamo estado', new_prestamo_estado_path %>

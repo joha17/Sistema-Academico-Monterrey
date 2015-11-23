@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecsol:</strong>
+  <%= @prestamo.fecSol %>
+</p>
+
+<p>
+  <strong>Fecdev:</strong>
+  <%= @prestamo.fecDev %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @prestamo.user.NomUs %>
+</p>
+
+<p>
+  <strong>Libro:</strong>
+  <%= @prestamo.libro.TitLib %>
+</p>
+
+<p>
+  <strong>Prestamo estado:</strong>
+  <%= @prestamo.prestamo_estado.nomEstPres %>
+</p>
+
+<%= link_to 'Edit', edit_prestamo_path(@prestamo) %> |
+<%= link_to 'Back', prestamos_path %>

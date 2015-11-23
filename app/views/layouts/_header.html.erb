@@ -33,6 +33,9 @@
         <% if can? :show, Item %>
             <li><%= link_to "Inventario", items_path %></li>
         <% end %> 
+        <% if can? :show, Prestamo %>
+            <li><%= link_to "Prestamos de libros", prestamos_path %></li>
+        <% end %> 
 
         
 
