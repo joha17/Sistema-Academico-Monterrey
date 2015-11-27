@@ -21,9 +21,6 @@
         <% if can? :show, Libro %>
             <li><%= link_to "Libros", libros_path %></li>
         <% end %> 
-        <% if can? :show, Evento %>
-            <li><%= link_to "Eventos", eventos_path %></li>
-        <% end %>
         <% if can? :show, Query %>
             <li><%= link_to "Consultas", queries_path %></li>
         <% end %>
@@ -33,6 +30,9 @@
         <% if can? :show, Item %>
             <li><%= link_to "Inventario", items_path %></li>
         <% end %> 
+        <% if can? :show, Evento %>
+            <li><%= link_to "Eventos", eventos_path %></li>
+        <% end %>
         <% if can? :show, Prestamo %>
             <li><%= link_to "Prestamos de libros", prestamos_path %></li>
         <% end %> 

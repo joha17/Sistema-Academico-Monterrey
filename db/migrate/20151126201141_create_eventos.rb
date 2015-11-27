@@ -1,11 +1,10 @@
 class CreateEventos < ActiveRecord::Migration
   def change
     create_table :eventos do |t|
-      t.string :LugEven
-      t.datetime :FechEven
-      t.text :DescEven
       t.string :NomEven
-      t.string :NomUs
+      t.text :DesEven
+      t.date :FecEvent
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

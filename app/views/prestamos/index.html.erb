@@ -1,8 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Prestamos</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1>Prestamos</h1>
+    </div>
+  </div>
 
-<table>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+      <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-1">
+    <%if can? :create, Prestamo %>
+      <%= link_to "", new_prestamo_path , class: "btn btn-success glyphicon glyphicon-plus" %>
+    <%end%>
+      </div>
+      </div>
+      </div>
+      <table class="table">
   <thead>
     <tr>
       <th>Fecsol</th>
@@ -22,14 +41,24 @@
         <td><%= prestamo.user.NomUs %></td>
         <td><%= prestamo.libro.TitLib %></td>
         <td><%= prestamo.prestamo_estado.nomEstPres %></td>
-        <td><%= link_to 'Show', prestamo %></td>
-        <td><%= link_to 'Edit', edit_prestamo_path(prestamo) %></td>
-        <td><%= link_to 'Destroy', prestamo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if can? :show, Prestamo %>
+          <td><%= link_to 'Show', prestamo, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
+        <%end%>
+        <% if can? :update, Prestamo %>
+          <td><%= link_to 'Edit', edit_prestamo_path(prestamo), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
+        <%end%>
+        <%if can? :delete, Prestamo%>
+          <td><%= link_to 'Destroy', prestamo, class: "btn btn-warning glyphicon glyphicon-trash", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
+ </div>
+    </div>
+    </div>
+
 
 <br>
 
-<%= link_to 'New Prestamo', new_prestamo_path %>
+

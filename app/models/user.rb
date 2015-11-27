@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :eventos
   has_many :consults
   has_many :items
+  belongs_to :role
 
   validates :CedUs,
             presence: true,
@@ -32,6 +33,9 @@ class User < ActiveRecord::Base
   #def to_s
   #  "#{NomUs}"
   #end
+def role?(role)
+    return !!self.roles.find_by_nomRole(role.to_s.camelize)
+end
 
   
 

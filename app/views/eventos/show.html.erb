@@ -1,30 +1,23 @@
-
+<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nombre:</strong>
+  <strong>Nomeven:</strong>
   <%= @evento.NomEven %>
 </p>
 
-
 <p>
-  <strong>Lugar del evento:</strong>
-  <%= @evento.LugEven %>
+  <strong>Deseven:</strong>
+  <%= @evento.DesEven %>
 </p>
 
 <p>
-  <strong>Fecha del evento:</strong>
-  <!-- Formatos para mostrar fecha "http://apidock.com/ruby/DateTime/strftime"-->
-  <%= @evento.FechEven.strftime("%D a las  %H:%M") %>
+  <strong>Fecevent:</strong>
+  <%= @evento.FecEvent %>
 </p>
 
 <p>
-  <strong>Descripcion:</strong>
-  <%= @evento.DescEven %>
-</p>
-
-<p>
-  <strong>Usuario:</strong>
-  <%= @evento.NomUs %>
+  <strong>User:</strong>
+  <%= @evento.user.NomUs %>
 </p>
 
 <%= link_to 'Edit', edit_evento_path(@evento) %> |

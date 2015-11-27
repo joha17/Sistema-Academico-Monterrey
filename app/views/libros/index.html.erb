@@ -1,8 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1>Libros</h1>
+    </div>
+  </div>
 
-<h1>Listing Libros</h1>
 
-<table>
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+      <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-1">
+    <%if can? :create, Libro %>
+      <%= link_to "", new_libro_path , class: "btn btn-success glyphicon glyphicon-plus" %>
+    <%end%>
+      </div>
+      </div>
+      </div>
+      <table class="table">
   <thead>
     <tr>
       <th>Titlib</th>
@@ -36,9 +53,15 @@
         <td><%= libro.Disp %></td>
         <td><%= libro.CodDewLib %></td>
         <td><%= libro.editorial.NomEdi %></td>
-        <td><%= link_to 'Show', libro %></td>
-        <td><%= link_to 'Edit', edit_libro_path(libro) %></td>
-        <td><%= link_to 'Destroy', libro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if can? :show, Libro %>
+          <td><%= link_to 'Show', libro, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
+        <% end %>
+        <% if can? :update, Libro %>
+          <td><%= link_to 'Edit', edit_libro_path(libro), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
+        <% end %>
+        <% if can? :delete, Libro %>
+          <td><%= link_to 'Destroy', libro, class: "btn btn-warning glyphicon glyphicon-trash", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -46,4 +69,3 @@
 
 <br>
 
-<%= link_to 'New Libro', new_libro_path %>

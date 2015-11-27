@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :eventos
   resources :roles
   resources :prestamos
   resources :prestamo_estados
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
   resources :items
   resources :categories
   resources :places
-  resources :eventos
 
 
 

@@ -1,8 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Items</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1>Libros</h1>
+    </div>
+  </div>
 
-<table>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+      <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-1">
+    <%if can? :create, Item %>
+      <%= link_to "", new_item_path , class: "btn btn-success glyphicon glyphicon-plus" %>
+    <%end%>
+      </div>
+      </div>
+      </div>
+      <table class="table">
   <thead>
     <tr>
       <th>Nomitem</th>
@@ -22,14 +41,18 @@
         <td><%= item.user.NomUs %></td>
         <td><%= item.place.NomPlace %></td>
         <td><%= item.category.nomCategory %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if can? :show, Item %>
+          <td><%= link_to 'Show', item, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
+        <% end %>
+        <% if can? :update, Item %>
+          <td><%= link_to 'Edit', edit_item_path(item), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
+        <%end%>
+        <% if can? :delete, Item %>
+          <td><%= link_to 'Destroy', item, class: "btn btn-primary glyphicon glyphicon-trash", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Item', new_item_path %>
