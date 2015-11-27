@@ -1,57 +1,82 @@
 class CarnetPdf < Prawn::Document
 	def initialize(user)
-		super(top_margin: 100)
+		super(top_margin: 70)
 		@user = user
 		titulo
 		nombre
-		carnetNum
-		seccion
-		telefono
-		valido
-		hasta
-		firmaEst
-		firmaAdmin
+		carne
+		column
+		firma
+		info
 		
 	end
-
 	def titulo
-		text "Centro Educativo", size: 30, stylr: :bold, :align => :center
+		text "Centro Educativo",size: 20, style: :bold
 	end
 
 	def nombre
-		move_down 40
-		text "Nombre: #{@user.NomUs + @user.ApUnoUs + @user.ApDosUs }"
+		 text "Nombre: #{@user.NomUs + @user.ApUnoUs + @user.ApDosUs }"
 	end
 
-	def carnetNum
+	def carne
 		text "No Carnet: #{@user.CedUs}"
 	end
 
-	def seccion
-		text "Seccion: #{@user.SecUs}"
+	def column
+		
+		define_grid(:columns => 5, :rows => 1, :gutter => 5) 
+
+		grid([0,0], [1,7]).bounding_box do 
+		  
+		  move_down 70
+		  
+		  text "Seccion: #{@user.SecUs}"
+		text "Valido: #{@user.dt_ingUs.strftime("%d/%m/%Y")}"
+		end
+
+		grid([1,2], [0,1]).bounding_box do 
+		  
+		  # Company address
+		  move_down 70
+		  text "Telefono: #{@user.TelUs}", :align => :left
+		  text "Valido: #{@user.dt_salUs.strftime("%d/%m/%Y")}", :align => :left
+		  
+		end
 	end
 
-	def telefono
-		text "Telefono: #{@user.TelUs}", :align => :right
+	def info
+		text "Para:",size: 40, style: :bold
+		text "a) Identificarse como usuario", :align => :center
+		text "b) Participar de actividades culturales", :align => :center
+		text "c) Utilizar el servicio de biblioteca", :align => :center
+
+		define_grid(:columns => 5, :rows => 6, :gutter => 10) 
+
+		grid([3,0], [1,1]).bounding_box do 
+		  
+		  move_down 40
+		  stroke_horizontal_rule
+		  pad_top(20){
+		  text "Firma Interesado(a)"}
+		end
+
+		grid([2,3], [1,2]).bounding_box do 
+		  
+		  # Company address
+		  move_down 40
+		  stroke_horizontal_rule
+		  pad_top(20){
+		  text "Firma Bibliotecologo(a)", :align => :left}
+		  
+		end
 	end
 
-	def valido
-		text "Valido desde: #{@user.dt_ingUs.strftime("%d/%m/%Y")}"
+
+	def firma
+		
 	end
 
-	def hasta
-		text "Hasta: #{@user.dt_salUs.strftime("%d/%m/%Y")}", :align => :right
-	end
-
-	def firmaEst
-		move_down 20
-		stroke_horizontal_rule
-		pad_top(20) { text "Firma interesado(a)" }
-	end
-
-	def firmaAdmin
-		text "Firma Bibliotecologo(a)", :align => :right
-	end
+	
 
 
 end

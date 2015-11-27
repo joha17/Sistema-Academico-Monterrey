@@ -3,16 +3,13 @@ class PrestamoPdf < Prawn::Document
 		super(top_margin: 70)
 		@prestamo = prestamo
 		id
-		signatura
-		biblioteca
 		autor
 		titulo
-		numInsc
-		fecha
-		vence
-		seccion
+		columna
+		columna2
 		nombre
 		firma
+		
 	end
 
 	def id
@@ -20,6 +17,7 @@ class PrestamoPdf < Prawn::Document
 	end
 
 	def signatura
+		move_down 20
 		text "Signatura: #{@prestamo.signatura.nomSig}", style: :bold
 	end
 
@@ -56,7 +54,44 @@ class PrestamoPdf < Prawn::Document
 	end
 
 	def firma
-		text "Firma"
+		move_down 40
+		stroke_horizontal_rule
+		  pad_top(20){
+		  text "Firma Interesado(a)"}
+	end
+
+	def columna
+		define_grid(:columns => 5, :rows => 6, :gutter => 10) 
+
+		grid([3,0], [1,1]).bounding_box do 
+		  
+	
+		  text "Signatura: #{@prestamo.signatura.nomSig}", style: :bold
+		end
+
+		grid([2,3], [1,2]).bounding_box do 
+		  
+		  text "Biblioteca: #{@prestamo.biblioteca}", style: :bold
+		  
+		end
+	end
+
+	def columna2
+		define_grid(:columns => 5, :rows => 6, :gutter => 10) 
+
+		grid([3,0], [2,2]).bounding_box do 
+		  
+	
+		  text "No Inscripcion: #{@prestamo.libro.numInsc}"
+		  text "Vence: #{@prestamo.fecDev}"
+		end
+
+		grid([2,3], [2,2]).bounding_box do 
+		  
+		  text "Fecha: #{@prestamo.fecSol}"
+		  text "Seccion: #{@prestamo.seccion}"
+		  
+		end
 	end
 
 end
