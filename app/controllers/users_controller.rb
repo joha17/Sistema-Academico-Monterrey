@@ -11,6 +11,16 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = CarnetPdf.new(@user)
+        send_data pdf.render, filename: "user_#{@user.id}.pdf", 
+        type: "application/pdf",
+        disposition: "inline" 
+      end
+    end
   end
 
   # GET /users/new

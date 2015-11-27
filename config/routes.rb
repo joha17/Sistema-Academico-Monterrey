@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :signaturas
   resources :eventos
   resources :roles
   resources :prestamos

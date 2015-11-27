@@ -1,0 +1,21 @@
+<%= form_for(@signatura) do |f| %>
+  <% if @signatura.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@signatura.errors.count, "error") %> prohibited this signatura from being saved:</h2>
+
+      <ul>
+      <% @signatura.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nomSig %><br>
+    <%= f.text_field :nomSig %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

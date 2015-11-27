@@ -10,6 +10,16 @@ class PrestamosController < ApplicationController
   # GET /prestamos/1
   # GET /prestamos/1.json
   def show
+    @prestamo = Prestamo.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = PrestamoPdf.new(@prestamo)
+        send_data pdf.render, filename: "prestamo_#{@prestamo.id}.pdf", 
+        type: "application/pdf",
+        disposition: "inline" 
+      end
+    end
   end
 
   # GET /prestamos/new
@@ -70,6 +80,6 @@ class PrestamosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prestamo_params
-      params.require(:prestamo).permit(:fecSol, :fecDev, :user_id, :libro_id, :prestamo_estado_id)
+      params.require(:prestamo).permit(:fecSol, :fecDev, :user_id, :libro_id, :prestamo_estado_id, :signatura_id, :seccion, :biblioteca, :nomSolic)
     end
 end

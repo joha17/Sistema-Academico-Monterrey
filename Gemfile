@@ -31,6 +31,7 @@ gem "paperclip", "~> 4.3"
 
 gem 'bootstrap-sass', '~> 3.3.5'
 
+gem 'prawn', '~> 2.0', '>= 2.0.2'
 
 #gem 'bootstrap-sass', '~> 3.3.5.1'
 

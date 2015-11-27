@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126201141) do
+ActiveRecord::Schema.define(version: 20151127061831) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "nomCategory"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20151126201141) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "objEven"
+    t.text     "respEven"
+    t.text     "partEven"
   end
 
   add_index "eventos", ["user_id"], name: "index_eventos_on_user_id"
@@ -68,6 +71,7 @@ ActiveRecord::Schema.define(version: 20151126201141) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "NomEdi"
+    t.integer  "numInsc"
   end
 
   add_index "libros", ["editorial_id"], name: "index_libros_on_editorial_id"
@@ -93,6 +97,11 @@ ActiveRecord::Schema.define(version: 20151126201141) do
     t.integer  "prestamo_estado_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "biblioteca"
+    t.date     "vence"
+    t.string   "nomSolic"
+    t.string   "seccion"
+    t.integer  "signatura_id"
   end
 
   add_index "prestamos", ["libro_id"], name: "index_prestamos_on_libro_id"
@@ -107,6 +116,12 @@ ActiveRecord::Schema.define(version: 20151126201141) do
     t.integer  "query_state_id", default: 1
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.text     "info_solic"
+    t.string   "propCons"
+    t.text     "libCons"
+    t.string   "nomLec"
+    t.string   "seccion"
+    t.integer  "signatura_id"
   end
 
   add_index "queries", ["query_state_id"], name: "index_queries_on_query_state_id"
@@ -122,6 +137,13 @@ ActiveRecord::Schema.define(version: 20151126201141) do
     t.string   "nomRole"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "signaturas", force: :cascade do |t|
+    t.string   "nomSig"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "{:index=>true, :foreign_key=>true}_id"
   end
 
   create_table "users", force: :cascade do |t|

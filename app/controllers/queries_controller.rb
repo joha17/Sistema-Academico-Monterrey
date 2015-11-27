@@ -70,6 +70,6 @@ class QueriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def query_params
-      params.require(:query).permit(:NomCon, :DesCon, :FecCon, :user_id, :query_state_id)
+      params.require(:query).permit(:NomCon, :DesCon, :FecCon, :user_id, :query_state_id, :signatura_id, :info_solic, :propCons, :libCons, :nomLec, :seccion)
     end
 end

@@ -19,14 +19,42 @@
           <%= f.text_field :NomCon, autofocus: true, class: "form-control" %>
         </div>
         <div class="field">
-          <%= f.label :DesCon %><br>
-          <%= f.text_field :DesCon, autofocus: true, class: "form-control" %>
+        <strong>Informcacion solicitada</strong><br>
+          <%= f.text_area :info_solic, autofocus: true, class: "form-control" %>
         </div>
         <div class="field">
-          <%= f.label :FecCon %><br>
+          <strong>Proposito</strong><br>
+          <%= f.radio_button :propCons, 'Conferencia' %> 
+          <%= f.label :propCons, 'Conferencia', :value => 'Conferencia' %>
+          <%= f.radio_button :propCons, 'Investigacion' %>
+          <%= f.label :propCons, 'Investigacion', :value => 'Investigacion' %>
+          <%= f.radio_button :propCons, 'Otro' %>
+          <%= f.label :propCons, 'Otro', :value => 'Otro' %>
+        </div>
+        <div class="field">
+          <strong>Signatura</strong><br>
+          <%= collection_select(:query, :signatura_id, Signatura.all, :id, :nomSig, prompt: true) %>
+        </div><br>
+        <div class="field">
+          <strong>Libros Consultados</strong><br>
+          <%= f.text_area :libCons, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="field">
+          <strong>Nombre del Lector</strong><br>
+          <%= f.text_field :nomLec, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="field">
+          <strong>Seccion</strong><br>
+          <%= f.text_field :seccion, autofocus: true, class: "form-control" %>
+        </div><br>
+        <div class="field">
+          <strong>Para que dia necesita la informacion</strong><br>
           <%= f.date_select :FecCon, autofocus: true, class: "form-control" %>
         </div>
-
+        <div class="field">
+          <strong>Consulte lo siguiente</strong><br>
+          <%= f.text_area :DesCon, autofocus: true, class: "form-control" %>
+        </div><br>
         <div class="field">
           <%= f.label :query_state_id %><br>
           <%= collection_select(:query, :query_state_id, QueryState.all, :id, :DeState, prompt: true) %>
@@ -38,3 +66,7 @@
     </div>
   </div>
 </div>
+<br>
+<br>
+<br>
+<br>

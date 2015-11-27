@@ -69,6 +69,6 @@ class LibrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def libro_params
-      params.require(:libro).permit(:TitLib, :AutLib, :EdicLib, :AnioLib, :FecLib, :LugLib, :ObsLib, :DesLib, :CantLib, :Disp, :CodDewLib, :editorial_id)
+      params.require(:libro).permit(:TitLib, :AutLib, :EdicLib, :AnioLib, :FecLib, :LugLib, :ObsLib, :DesLib, :CantLib, :Disp, :CodDewLib, :editorial_id, :numInsc)
     end
 end

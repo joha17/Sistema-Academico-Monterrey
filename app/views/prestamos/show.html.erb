@@ -26,4 +26,5 @@
 </p>
 
 <%= link_to 'Edit', edit_prestamo_path(@prestamo) %> |
-<%= link_to 'Back', prestamos_path %>
+<%= link_to 'Back', prestamos_path %> |
+<%= link_to "Imprimir Prestamo", prestamo_path(@prestamo, format: "pdf") %>

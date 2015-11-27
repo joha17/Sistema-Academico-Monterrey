@@ -19,14 +19,26 @@
           <%= f.text_field :NomEven %>
         </div>
         <div class="field">
-          <%= f.label :DesEven %><br>
-          <%= f.text_area :DesEven %>
-        </div>
-        <div class="field">
           <%= f.label :FecEvent %><br>
           <%= f.date_select :FecEvent %>
         </div>
-        <div class="actions">s
+        <div class="field">
+          <strong>Objetivos</strong><br>
+          <%= f.text_area :objEven %>
+        </div>
+        <div class="field">
+          <strong>Responsables</strong><br>
+          <%= f.text_area :respEven %>
+        </div>
+        <div class="field">
+          <strong>Participantes</strong><br>
+          <%= f.text_area :partEven %>
+        </div>
+        <div class="field">
+          <strong>Actividades</strong><br>
+          <%= f.text_area :DesEven %>
+        </div>
+        <div class="actions">
           <%= f.submit %>
         </div>
       <% end %>
