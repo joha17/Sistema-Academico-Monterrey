@@ -1,5 +1,5 @@
 
-
+<% if current_user %>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,9 +17,20 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-      <% if current_user %>
+      <!-- current user if -->
         <% if can? :show, Libro %>
-            <li><%= link_to "Libros", libros_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Libros<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Ver libros", libros_path %></li>
+            <% if can? :show, Descarte %>
+            <li><%= link_to "Descarte o Sugerencias de Libros", descartes_path %></li>
+            <%end%>
+            <% if can? :show, Prestamo %>
+            <li><%= link_to "Prestamos de libros", prestamos_path %></li>
+        <% end %>
+          </ul>
+        </li>
         <% end %> 
         <% if can? :show, Query %>
             <li><%= link_to "Consultas", queries_path %></li>
@@ -33,9 +44,7 @@
         <% if can? :show, Evento %>
             <li><%= link_to "Eventos", eventos_path %></li>
         <% end %>
-        <% if can? :show, Prestamo %>
-            <li><%= link_to "Prestamos de libros", prestamos_path %></li>
-        <% end %> 
+         
 
         
 
@@ -56,14 +65,7 @@
           </ul>
         </li>
           <%else%>
-          <li><a href="" data-toggle="modal" data-target=".bs-example-modal-lg">Iniciar Sesion</a></li>
-          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <%= render "layouts/new" %>
-              </div>
-            </div>
-          </div>
+          
         </li>
       </ul>
       <%end%>

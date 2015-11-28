@@ -1,27 +1,40 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nomitem:</strong>
-  <%= @item.nomItem %>
-</p>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <p id="notice"><%= notice %></p>
+      <div class="jumbotron">
+        <div class="container">
+          <p>
+            <strong>Nombre:</strong>
+            <%= @item.nomItem %>
+          </p>
 
-<p>
-  <strong>Desitem:</strong>
-  <%= @item.desItem %>
-</p>
+          <p>
+            <strong>Descripcion:</strong>
+            <%= @item.desItem %>
+          </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @item.user.NomUs %>
-</p>
+          <p>
+            <strong>Cantidad:</strong>
+            <%= @item.canItem %>
+          </p>
 
-<p>
-  <strong>Place:</strong>
-  <%= @item.place.NomPlace %>
-</p>
+          <p>
+            <strong>Usuario:</strong>
+            <%= @item.user.NomUs %>
+          </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @item.category.nomCategory %>
-</p>
+          <p>
+            <strong>Lugar:</strong>
+            <%= @item.place.NomPlace %>
+          </p>
+
+          <p>
+            <strong>Categoria:</strong>
+            <%= @item.category.nomCategory %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 

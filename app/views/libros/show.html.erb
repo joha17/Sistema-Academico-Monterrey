@@ -1,64 +1,68 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titlib:</strong>
-  <%= @libro.TitLib %>
-</p>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <p id="notice"><%= notice %></p>
+      <div class="jumbotron">
+        <div class="container">
+          
+           <div class="page-header">
+            <h1><%= @libro.TitLib %><small> <%= @libro.AutLib %></small></h1>
+          </div> 
 
-<p>
-  <strong>Autlib:</strong>
-  <%= @libro.AutLib %>
-</p>
+          <p>
+            <strong>Editorial:</strong>
+            <%= @libro.editorial.NomEdi %>
+          </p>
 
-<p>
-  <strong>Ediclib:</strong>
-  <%= @libro.EdicLib %>
-</p>
+          <p>
+            <strong>Edición:</strong>
+            <%= @libro.EdicLib %>
+          </p>
 
-<p>
-  <strong>Aniolib:</strong>
-  <%= @libro.AnioLib %>
-</p>
+          <p>
+            <strong>Año:</strong>
+            <%= @libro.AnioLib %>
+          </p>
 
-<p>
-  <strong>Feclib:</strong>
-  <%= @libro.FecLib %>
-</p>
+          <p>
+            <strong>Fecha del libro:</strong>
+            <%= @libro.FecLib %>
+          </p>
 
-<p>
-  <strong>Luglib:</strong>
-  <%= @libro.LugLib %>
-</p>
+          <p>
+            <strong>Lugar del libro:</strong>
+            <%= @libro.LugLib %>
+          </p>
 
-<p>
-  <strong>Obslib:</strong>
-  <%= @libro.ObsLib %>
-</p>
+          <p>
+            <strong>Observaciónes:</strong>
+            <%= @libro.ObsLib %>
+          </p>
 
-<p>
-  <strong>Deslib:</strong>
-  <%= @libro.DesLib %>
-</p>
+          <p>
+            <strong>Descripción:</strong>
+            <%= @libro.DesLib %>
+          </p>
 
-<p>
-  <strong>Cantlib:</strong>
-  <%= @libro.CantLib %>
-</p>
+          <p>
+            <strong>Cantridad:</strong>
+            <%= @libro.CantLib %>
+          </p>
 
-<p>
-  <strong>Disp:</strong>
-  <%= @libro.Disp %>
-</p>
+          <p>
+            <strong>Disponibles:</strong>
+            <%= @libro.Disp %>
+          </p>
 
-<p>
-  <strong>Coddewlib:</strong>
-  <%= @libro.CodDewLib %>
-</p>
+          <p>
+            <strong>Codígo Deway:</strong>
+            <%= @libro.CodDewLib %>
+          </p>
 
-<p>
-  <strong>Editorial:</strong>
-  <%= @libro.editorial.NomEdi %>
-</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
 
-<%= link_to 'Edit', edit_libro_path(@libro) %> |
-<%= link_to 'Back', libros_path %>

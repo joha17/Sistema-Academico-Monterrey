@@ -1,54 +1,68 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Tema:</strong>
-  <%= @query.NomCon %>
-</p>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <p id="notice"><%= notice %></p>
+      <div class="jumbotron">
+        <div class="container">
+          
+           <div class="page-header">
+            <h1><%= @query.NomCon %><small> <%= @query.user.NomUs %></small></h1>
+          </div> 
+            <p>
+              <strong>Tema:</strong>
+              <%= @query.NomCon %>
+            </p>
 
-<p>
-  <strong>Informacion Solicitada:</strong>
-  <%= @query.info_solic %>
-</p>
+            <p>
+              <strong>Información Solicitada:</strong>
+              <%= @query.info_solic %>
+            </p>
 
-<p>
-  <strong>Proposito:</strong>
-  <%= @query.propCons %>
-</p>
+            <p>
+              <strong>Proposito:</strong>
+              <%= @query.propCons %>
+            </p>
 
-<p>
-  <strong>Asignatura:</strong>
-  <%= @query.signatura.nomSig %>
-</p>
+            <p>
+              <strong>Asignatura:</strong>
+              <%= @query.signatura.nomSig %>
+            </p>
 
-<p>
-  <strong>Libros solcitados:</strong>
-  <%= @query.NomCon %>
-</p>
+            <p>
+              <strong>Libros solcitados:</strong>
+              <%= @query.NomCon %>
+            </p>
 
-<p>
-  <strong>Seccion:</strong>
-  <%= @query.seccion %>
-</p>
+            <p>
+              <strong>Sección:</strong>
+              <%= @query.seccion %>
+            </p>
 
-<p>
-  <strong>Para que dia necesita la inforamacion:</strong>
-  <%= @query.FecCon %>
-</p>
+            <p>
+              <strong>Para que día necesita la inforamación:</strong>
+              <%= @query.FecCon %>
+            </p>
 
-<p>
-  <strong>Consulte la informacion solicitada</strong>
-  <%= @query.DesCon %>
-</p>
+            <p>
+              <strong>Consulte la información solicitada</strong>
+              <%= @query.DesCon %>
+            </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @query.user.NomUs %>
-</p>
+            <p>
+              <strong>Usuario:</strong>
+              <%= @query.user.NomUs %>
+            </p>
 
-<p>
-  <strong>Query state:</strong>
-  <%= @query.query_state.DeState %>
-</p>
+            <p>
+              <strong>Estado Consulta:</strong>
+              <%= @query.query_state.DeState %>
+            </p>
 
-<%= link_to 'Edit', edit_query_path(@query) %> |
-<%= link_to 'Back', queries_path %>
+            <%= link_to 'Back', queries_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>

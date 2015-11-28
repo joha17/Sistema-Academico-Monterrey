@@ -5,54 +5,57 @@
     <div class="col-sm-10 col-sm-offset-1">
       <h1>Consultas</h1>
     </div>
-  </div>
-
-
-  <div class="row">
+    <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
       <div class="panel panel-default">
   <!-- Default panel contents -->
       <div class="panel-heading">
-      <div class="row">
-        <div class="col-md-1">
-    <%if can? :create, Query %>
-      <%= link_to "", new_query_path , class: "btn btn-success glyphicon glyphicon-plus" %>
-    <%end%>
-      </div>
-      </div>
+        <div class="row">
+          <div class="col-md-1">
+            <%if can? :create, Query %>
+              <%= link_to "", new_query_path , class: "btn btn-success glyphicon glyphicon-plus" %>
+            <%end%>
+          </div>
+        </div>
       </div>
       <table class="table">
-  <thead>
-    <tr>
-      <th>Nomcon</th>
-      <th>Descon</th>
-      <th>Feccon</th>
-      <th>User</th>
-      <th>Query state</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <thead>
+        <tr>
+          <th>Consulta</th>
+          <th>Descripción</th>
+          <th>Fecha</th>
+          <th>Usuario</th>
+          <th>Estado de Consilta</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @queries.each do |query| %>
-      <tr>
-        <td><%= query.NomCon %></td>
-        <td><%= query.DesCon %></td>
-        <td><%= query.FecCon %></td>
-        <td><%= query.user.NomUs %></td>
-        <td><%= query.query_state.DeState %></td>
-        <% if can? :show, Query %>
-          <td><%= link_to 'Show', query %></td>
+      <tbody>
+        <% @queries.each do |query| %>
+          <tr>
+            <td><%= query.NomCon %></td>
+            <td><%= query.DesCon %></td>
+            <td><%= query.FecCon %></td>
+            <td><%= query.user.NomUs %></td>
+            <td><%= query.query_state.DeState %></td>
+            <% if can? :show, Query %>
+              <td><%= link_to '', query, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
+            <% end %>
+            <% if can? :update, Query %>
+              <td><%= link_to '', edit_query_path(query), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
+            <% end %>
+            <% if can? :delete, Query %>
+              <td><%= link_to '', query, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning glyphicon glyphicon-trash" %></td>
+            <%end%>
+          </tr>
         <% end %>
-        <% if can? :update, Query %>
-          <td><%= link_to 'Edit', edit_query_path(query) %></td>
-        <% end %>
-        <% if can? :delete, Query %>
-          <td><%= link_to 'Destroy', query, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+  </div>
 
+
+  
 <br>

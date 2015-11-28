@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :descartes
   resources :signaturas
   resources :eventos
   resources :roles
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   resources :users
   get 'info_user_users' => "users#info_user", :as => :current_user_info
+  
   
   patch 'users' => 'users#index', :as => :users_index
   #patch 'users#index'

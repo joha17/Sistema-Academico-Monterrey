@@ -42,13 +42,13 @@
         <td><%= prestamo.libro.TitLib %></td>
         <td><%= prestamo.prestamo_estado.nomEstPres %></td>
         <% if can? :show, Prestamo %>
-          <td><%= link_to 'Show', prestamo, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
+          <td><%= link_to '', prestamo, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
         <%end%>
         <% if can? :update, Prestamo %>
-          <td><%= link_to 'Edit', edit_prestamo_path(prestamo), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
+          <td><%= link_to '', edit_prestamo_path(prestamo), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
         <%end%>
         <%if can? :delete, Prestamo%>
-          <td><%= link_to 'Destroy', prestamo, class: "btn btn-warning glyphicon glyphicon-trash", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '', prestamo, class: "btn btn-warning glyphicon glyphicon-trash", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
       </tr>
     <% end %>

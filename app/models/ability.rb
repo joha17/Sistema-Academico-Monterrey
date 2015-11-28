@@ -11,6 +11,7 @@ class Ability
     #si es profesor puede ver libros y eventos
      can :show, Libro
      can [:create, :show, :update], Query
+     can [:create, :show, :update], Descarte
      can [:create, :show, :update], Prestamo
      can [:create, :show, :update], Evento
      #can :manage, Evento, :id => user.id    

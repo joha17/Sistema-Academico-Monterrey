@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127061831) do
+ActiveRecord::Schema.define(version: 20151127180835) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "nomCategory"
@@ -19,6 +19,24 @@ ActiveRecord::Schema.define(version: 20151127061831) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "descartes", force: :cascade do |t|
+    t.text     "obserDesc"
+    t.date     "fechaDesc"
+    t.integer  "cantLibSug"
+    t.integer  "cantLibDes"
+    t.string   "autLibSug"
+    t.string   "titLibSug"
+    t.integer  "user_id"
+    t.integer  "signatura_id"
+    t.integer  "libro_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "descartes", ["libro_id"], name: "index_descartes_on_libro_id"
+  add_index "descartes", ["signatura_id"], name: "index_descartes_on_signatura_id"
+  add_index "descartes", ["user_id"], name: "index_descartes_on_user_id"
 
   create_table "editorials", force: :cascade do |t|
     t.string   "NomEdi"
@@ -168,6 +186,7 @@ ActiveRecord::Schema.define(version: 20151127061831) do
     t.datetime "photo_updated_at"
     t.integer  "role_id"
     t.integer  "user_id"
+    t.text     "dirUs"
   end
 
 end

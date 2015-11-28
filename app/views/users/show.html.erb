@@ -1,85 +1,64 @@
-<div class="container">
-  <div class="row">
+
+<div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-<div class="jumbotron text-center">
-  <h1><%= @user.NomUs %></h1>
-  <%= link_to image_tag(@user.photo.url(:thumb),class: "img-circle"), @user.photo.url %>
-  <div>
+      <p id="notice"><%= notice %></p>
+      <div class="jumbotron">
+        <div class="container">
+            <p>
+              <strong>Nombre:</strong>
+              <%= @user.NomUs %>
+            </p>
 
-<p>
-  <strong>Cedula:</strong>
-  <%= @user.CedUs %>
-</p>
-<p>
-  <strong>Nombre:</strong>
-  <%= @user.NomUs %>
-</p>
+            <p>
+              <strong>Primer Apellido:</strong>
+              <%= @user.ApUnoUs %>
+            </p>
 
-<p>
-  <strong>Primer Apellido:</strong>
-  <%= @user.ApUnoUs %>
-</p>
+            <p>
+              <strong>Segundo Apellido:</strong>
+              <%= @user.ApDosUs %>
+            </p>
 
-<p>
-  <strong>Segundo Apellido:</strong>
-  <%= @user.ApDosUs %>
-</p>
+            <p>
+              <strong>Seccion:</strong>
+              <%= @user.SecUs %>
+            </p>
 
-<p>
-  <strong>Edad:</strong>
-  <%= @user.edadUs %>
-</p>
+            <p>
+              <strong>Rol:</strong>
+              <%= @user.role.nomRole %>
+            </p>
 
-<p>
-  <strong>Rol:</strong>
-  <%= @user.role.nomRole %>
-</p>
-<p>
-  <strong>Nivel:</strong>
-  <%= @user.FK_NivUs %>
-</p>
+            <p>
+              <strong>Cedula:</strong>
+              <%= @user.CedUs %>
+            </p>
 
-<p>
-  <strong>Fecha Ingreso:</strong>
-  <%= @user.dt_ingUs %>
-</p>
+            <p>
+              <strong>Edad:</strong>
+              <%= @user.edadUs %>
+            </p>
 
-<p>
-  <strong>Fecha Salida:</strong>
-  <%= @user.dt_salUs %>
-</p>
+            <p>
+              <strong>Nivel:</strong>
+              <%= @user.FK_NivUs %>
+            </p>
 
-<p>
-  <strong>Seccion:</strong>
-  <%= @user.SecUs %>
-</p>
+            <p>
+              <strong>Direccion:</strong>
+              <%= @user.dirUs %>
+            </p>
 
-<p>
-  <strong>Telefono:</strong>
-  <%= @user.TelUs %>
-</p>
+            <p>
+              <strong>Fecha de Ingreso:</strong>
+              <%= @user.created_at %>
+            </p>
 
-<p>
-  <strong>Direccion:</strong>
-  <%= @user.FK_DirUs %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="text-center">
-  <p><%= link_to "Imprimir Carnet", user_path(@user, format: "pdf") %></p>
-
-</div>
-
-<br>
-<br>
-<br>
-<br>
+            <%= link_to 'Back', queries_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>

@@ -15,6 +15,11 @@
         <% end %>
 
         <div class="field">
+          <strong>Codigo Item</strong><br>
+          <%= f.text_field :id, autofocus: true, class: "form-control"  %>
+        </div>
+
+        <div class="field">
           <strong>Nombre</strong><br>
           <%= f.text_field :nomItem, autofocus: true, class: "form-control"  %>
         </div>
@@ -29,8 +34,13 @@
         </div>  
         <div class="field">
           <strong>Lugar</strong><br>
-          <%= collection_select(:item, :place_id, Place.all, :id, :NomPlace, prompt: true) %><br>
+          <%= collection_select(:item, :place_id, Place.all, :id, :NomPlace, prompt: true) %>
+          <%if can? :create, Place %>
+            <%= link_to "Agregar nuevo Lugar", new_place_path , class: "btn btn-success" %>
+          <%end%>
+          <br>
         </div>
+
         <div class="field">
           <strong>Categoria</strong><br>
           <%= collection_select(:item, :category_id, Category.all, :id, :nomCategory, prompt: true) %><br>

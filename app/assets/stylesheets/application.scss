@@ -1,2 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.background_image {
+    background: image-url('paper.jpg');
+} 
+
+
+.thumbnail-image1 {
+  background: image-url('library2.jpg');
+}
+
+.thumbnail-image2 {
+  background: image-url('consultas1.jpg');
+}
+
+.thumbnail-image3 {
+  background: image-url('inventory.jpg');
+}
+
+

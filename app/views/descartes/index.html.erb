@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1>Descarte o Sugerencia de Libros</h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <div class="panel panel-default">
+  <!-- Default panel contents -->
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-md-1">
+                <%if can? :create, Descarte %>
+                  <%= link_to "", new_descarte_path , class: "btn btn-success glyphicon glyphicon-plus" %>
+                <%end%>
+              </div>
+            </div>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Fechadesc</th>
+                <th>User</th>
+                <th>Signatura</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @descartes.each do |descarte| %>
+                <tr>
+                  <td><%= descarte.fechaDesc %></td>
+                  <td><%= descarte.user.NomUs %></td>
+                  <td><%= descarte.signatura.nomSig %></td>
+                  <td><%= link_to '', descarte, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
+                  <td><%= link_to '', edit_descarte_path(descarte), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
+                  <td><%= link_to '', descarte, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning glyphicon glyphicon-trash" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
