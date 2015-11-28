@@ -44,6 +44,7 @@
         <div class="field">
           <strong>Categoria</strong><br>
           <%= collection_select(:item, :category_id, Category.all, :id, :nomCategory, prompt: true) %><br>
+          <%= link_to "Agregar nuevo Lugar", new_category_path , class: "btn btn-success" %>
         </div>
         <div class="text-center">
           <%= f.submit "Aceptar", class: "btn btn-primary" %>

@@ -1,3 +1,4 @@
+<% if current_user %>
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
       <p id="notice"><%= notice %></p>
@@ -11,7 +12,7 @@
                       <div class="panel panel-default">
                         
                           <div class="panel-heading">
-                          <h3 class="panel-title">Observaciones</h3>
+                          <h3 class="panel-title">Signatura</h3>
                           </div>
                           <div class="panel-body">
                             <%= @descarte.signatura.nomSig %>
@@ -116,3 +117,6 @@
   <br>
   <br>
   <br>
+  <%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

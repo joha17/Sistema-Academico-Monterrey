@@ -1,3 +1,4 @@
+<% if current_user %>
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Categories</h1>
@@ -27,3 +28,7 @@
 <br>
 
 <%= link_to 'New Category', new_category_path %>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

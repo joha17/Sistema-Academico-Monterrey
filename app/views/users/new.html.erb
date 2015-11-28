@@ -1,6 +1,10 @@
-<%- model_class = User -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
-                                 :default => "New #{model_class.model_name.human}") %></h1>
+<% if current_user %>
+<div class="text-center">
+	<h1>Nuevo Usuario</h1>
 </div>
-<%= render :partial => 'form' %>
+
+
+<%= render 'form' %>
+<%else%>
+<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>

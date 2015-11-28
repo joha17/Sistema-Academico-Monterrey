@@ -1,39 +1,48 @@
-<p id="notice"><%= notice %></p>
+<% if current_user %>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <p id="notice"><%= notice %></p>
+      <div class="jumbotron">
+        <div class="container">
 
-<p>
-  <strong>Nomeven:</strong>
-  <%= @evento.NomEven %>
-</p>
+			<p>
+			  <strong>Evento:</strong>
+			  <%= @evento.NomEven %>
+			</p>
 
-<p>
-  <strong>Fecevent:</strong>
-  <%= @evento.FecEvent %>
-</p>
+			<p>
+			  <strong>Fecha del evento:</strong>
+			  <%= @evento.FecEvent %>
+			</p>
 
-<p>
-  <strong>Objetivos:</strong>
-  <%= @evento.objEven %>
-</p>
+			<p>
+			  <strong>Objetivos:</strong>
+			  <%= @evento.objEven %>
+			</p>
 
-<p>
-  <strong>Responsables:</strong>
-  <%= @evento.respEven %>
-</p>
+			<p>
+			  <strong>Responsables:</strong>
+			  <%= @evento.respEven %>
+			</p>
 
-<p>
-  <strong>Participantes:</strong>
-  <%= @evento.partEven %>
-</p>
+			<p>
+			  <strong>Participantes:</strong>
+			  <%= @evento.partEven %>
+			</p>
 
-<p>
-  <strong>Actividades:</strong>
-  <%= @evento.DesEven %>
-</p>
+			<p>
+			  <strong>Actividades:</strong>
+			  <%= @evento.DesEven %>
+			</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @evento.user.NomUs %>
-</p>
+			<p>
+			  <strong>Usuario:</strong>
+			  <%= @evento.user.NomUs %>
+			</p>
+		</div>
+	</div>
+</div>
 
-<%= link_to 'Edit', edit_evento_path(@evento) %> |
-<%= link_to 'Back', eventos_path %>
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

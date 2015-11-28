@@ -1,6 +1,9 @@
+<% if current_user %>
 <div class="text-center">
 	<h1>Nuevo Articulo</h1>
 </div>
-
-
 <%= render 'form' %>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

@@ -1,3 +1,4 @@
+<% if current_user %>
 <p id="notice"><%= notice %></p>
 
 <div class="container">
@@ -55,7 +56,9 @@
   </div>
 </div>
   </div>
-
-
   
 <br>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

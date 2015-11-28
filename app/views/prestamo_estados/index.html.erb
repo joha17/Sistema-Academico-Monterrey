@@ -1,3 +1,4 @@
+<% if current_user %>
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Prestamo Estados</h1>
@@ -27,3 +28,7 @@
 <br>
 
 <%= link_to 'New Prestamo estado', new_prestamo_estado_path %>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

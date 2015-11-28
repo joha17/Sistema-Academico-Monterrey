@@ -16,17 +16,28 @@
               </div>
             <% end %>
 
-            <div class="row">
+           
+
+            
+          <div class="row">
+
+             <div class="panel-heading">
+                  <div class="row">
                     <div class="col-sm-10 col-sm-offset-1">
-                      <div class="field">
-                        <strong>Asignatura</strong>
-                      <%= collection_select(:descarte, :signatura_id, Signatura.all, :id, :nomSig, prompt: true) %>
-                      </div>
-                      <br>
+                      <div class="panel panel-default">
+                        
+                          <div class="panel-heading">
+                          <h3 class="panel-title">Signatura</h3>
+                          </div>
+                          <div class="panel-body">
+                            <%= collection_select(:descarte, :signatura_id, Signatura.all, :id, :nomSig, prompt: true) %>
+                          </div>
+                        </div>
+                      
                     </div>
                   </div>
+                </div>
 
-          <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
               
               <div class="panel panel-default">
@@ -85,29 +96,42 @@
                 </div>
               </div>
           
+                 
+
+                  <div class="panel-heading">
                   <div class="row">
                     <div class="col-sm-10 col-sm-offset-1">
-                      <div class="field">
-                        <strong>Observaciones</strong><br>
-                        <%= f.text_area :obserDesc, autofocus: true, class: "form-control" %>
-                      </div>
+                      <div class="panel panel-default">
+                        
+                          <div class="panel-heading">
+                          <h3 class="panel-title">Observaciones</h3>
+                          </div>
+                          <div class="panel-body">
+                            <%= f.text_area :obserDesc, autofocus: true, class: "form-control" %>
+                          </div>
+
+                          <div class="panel-heading">
+                          <h3 class="panel-title">Fecha</h3>
+                          </div>
+                          <div class="panel-body">
+                            <%= f.date_select :fechaDesc %>
+                          </div>
+
+                          <div class="panel-heading">
+                          <h3 class="panel-title"></h3>
+                          </div>
+                          <div class="panel-body">
+                            <div class="actions text-center">
+                              <%= f.submit %>
+                            </div> 
+                          </div>
+                        </div>
                       <br>
-                      <div class="field">
-                        <strong>Fecha</strong><br>
-                        <%= f.date_select :fechaDesc %>
-                      </div>
-                      <br>
-            
-                      <div class="actions">
-                        <%= f.submit %>
-                      </div>
                     </div>
                   </div>
-                
-        
-            
-
+                </div>
           <% end %>
     </div>
   </div>
 </div>
+<br><br><br>

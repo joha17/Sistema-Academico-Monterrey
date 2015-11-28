@@ -1,5 +1,9 @@
+<% if current_user %>
 <h1>New Evento</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', eventos_path %>
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

@@ -1,4 +1,4 @@
-
+<% if current_user %>
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
       <p id="notice"><%= notice %></p>
@@ -54,7 +54,9 @@
               <%= @user.created_at %>
             </p>
 
-            <%= link_to 'Back', queries_path %>
+            <div class >
+            <%= link_to "Imprimir Carnet", user_path(@user, format: "pdf", class: "btn btn-primary") %>
+          </div>
           </div>
         </div>
       </div>
@@ -62,3 +64,6 @@
   </div>
   <br>
   <br>
+  <%else%>
+<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>

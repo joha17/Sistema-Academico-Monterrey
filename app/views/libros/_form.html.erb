@@ -33,6 +33,7 @@
         <div class="field">
           <strong>Editorial</strong> <br>
           <%= collection_select(:libro, :editorial_id, Editorial.all, :id, :NomEdi, prompt: true) %>
+          <%= link_to "Agregar nueva editorial", new_editorial_path %>
         </div>
         <div class="field">
           <%= f.label :AnioLib %><br>
