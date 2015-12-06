@@ -1,4 +1,5 @@
 <% if current_user %>
+<% if can? :show, Query %>
 <p id="notice"><%= notice %></p>
 
 <div class="container">
@@ -39,13 +40,13 @@
             <td><%= query.FecCon %></td>
             <td><%= query.user.NomUs %></td>
             <td><%= query.query_state.DeState %></td>
-            <% if can? :show, Query %>
+            <% if can? :show, query %>
               <td><%= link_to '', query, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
             <% end %>
-            <% if can? :update, Query %>
+            <% if can? :update, query %>
               <td><%= link_to '', edit_query_path(query), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
             <% end %>
-            <% if can? :delete, Query %>
+            <% if can? :delete, query %>
               <td><%= link_to '', query, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning glyphicon glyphicon-trash" %></td>
             <%end%>
           </tr>
@@ -58,6 +59,10 @@
   </div>
   
 <br>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
 
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>

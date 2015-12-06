@@ -1,9 +1,15 @@
 <% if current_user %>
-<h1>New Place</h1>
+<% if can? :create, Place %>
+<div class="text-center">
+	<h1>Nuevo Lugar</h1>
+</div>
+
 
 <%= render 'form' %>
 
-<%= link_to 'Back', places_path %>
+<%else%>
+<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>

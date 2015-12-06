@@ -18,34 +18,40 @@
           <strong>Codigo Item</strong><br>
           <%= f.text_field :id, autofocus: true, class: "form-control"  %>
         </div>
-
+        <br>
         <div class="field">
           <strong>Nombre</strong><br>
           <%= f.text_field :nomItem, autofocus: true, class: "form-control"  %>
         </div>
-
+        <br>
         <div class="field">
           <strong>Descripcion</strong><br>
           <%= f.text_area :desItem, autofocus: true, class: "form-control"  %>
         </div>
+        <br>
         <div class="field">
           <strong>Cantidad</strong><br>
           <%= f.text_field :canItem, autofocus: true, class: "form-control"  %>
-        </div>  
+        </div>
+        <br>  
         <div class="field">
           <strong>Lugar</strong><br>
           <%= collection_select(:item, :place_id, Place.all, :id, :NomPlace, prompt: true) %>
           <%if can? :create, Place %>
-            <%= link_to "Agregar nuevo Lugar", new_place_path , class: "btn btn-success" %>
+            <%= link_to "Agregar nuevo Lugar", new_place_path %>
           <%end%>
           <br>
         </div>
-
+        <br>
         <div class="field">
           <strong>Categoria</strong><br>
-          <%= collection_select(:item, :category_id, Category.all, :id, :nomCategory, prompt: true) %><br>
-          <%= link_to "Agregar nuevo Lugar", new_category_path , class: "btn btn-success" %>
+          <%= collection_select(:item, :category_id, Category.all, :id, :nomCategory, prompt: true) %>
+          <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          </div>
+          <%= link_to 'Agregar nuevo categoria', new_category_path  %>
+          
         </div>
+        <br>
         <div class="text-center">
           <%= f.submit "Aceptar", class: "btn btn-primary" %>
         </div>
@@ -53,3 +59,4 @@
     </div>
   </div>
 </div>
+

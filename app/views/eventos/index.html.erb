@@ -1,4 +1,5 @@
 <% if current_user %>
+<% if can? :show, Evento %>
 
 <p id="notice"><%= notice %></p>
 
@@ -38,9 +39,15 @@
                   <td><%= evento.DesEven %></td>
                   <td><%= evento.FecEvent %></td>
                   <td><%= evento.user.NomUs %></td>
-                  <td><%= link_to '', evento, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
-                  <td><%= link_to '', edit_evento_path(evento), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
-                  <td><%= link_to '', evento, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning glyphicon glyphicon-trash" %></td>
+                  <% if can? :read, Evento %>
+                    <td><%= link_to '', evento, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
+                  <% end %>
+                  <% if can? :update, evento %>
+                    <td><%= link_to '', edit_evento_path(evento), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
+                  <% end %>
+                  <% if can? :destroy, evento %>
+                    <td><%= link_to '', evento, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning glyphicon glyphicon-trash" %></td>
+                  <% end %>
                 </tr>
               <% end %>
             </tbody>
@@ -51,6 +58,9 @@
       </div>
     </div>
   </div>
+  <%else%>
+    <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>

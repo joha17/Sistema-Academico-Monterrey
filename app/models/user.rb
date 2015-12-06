@@ -23,8 +23,6 @@ class User < ActiveRecord::Base
             presence: true
   validates :edadUs,
             presence: true
-  validates :SecUs,
-            presence: true
   #validates :email,
    #         presence: true,
     #        uniqueness: true,

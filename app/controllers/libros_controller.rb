@@ -4,7 +4,12 @@ class LibrosController < ApplicationController
   # GET /libros
   # GET /libros.json
   def index
-    @libros = Libro.all
+    if params[:search]
+      @libros = Libro.paginate(page: params[:page],:per_page => 15).search(params[:search]).order("created_at DESC")
+    else
+      @libros = Libro.paginate(page: params[:page],:per_page => 15).all.order('created_at DESC')
+    end
+    #@libros = Libro.paginate(:page => params[:page], :per_page => 15)
   end
 
   # GET /libros/1
@@ -28,7 +33,7 @@ class LibrosController < ApplicationController
 
     respond_to do |format|
       if @libro.save
-        format.html { redirect_to @libro, notice: 'Libro was successfully created.' }
+        format.html { redirect_to @libro, notice: 'El libro se ha creado satisfacatoriamente.' }
         format.json { render :show, status: :created, location: @libro }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class LibrosController < ApplicationController
   def update
     respond_to do |format|
       if @libro.update(libro_params)
-        format.html { redirect_to @libro, notice: 'Libro was successfully updated.' }
+        format.html { redirect_to @libro, notice: 'El libro se ha editado satisfacatoriamente.' }
         format.json { render :show, status: :ok, location: @libro }
       else
         format.html { render :edit }
@@ -56,7 +61,7 @@ class LibrosController < ApplicationController
   def destroy
     @libro.destroy
     respond_to do |format|
-      format.html { redirect_to libros_url, notice: 'Libro was successfully destroyed.' }
+      format.html { redirect_to libros_url, notice: 'El libro se ha eliminado satisfacatoriamente.' }
       format.json { head :no_content }
     end
   end

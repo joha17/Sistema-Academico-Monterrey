@@ -1,21 +1,28 @@
-<%= form_for(@editorial) do |f| %>
-  <% if @editorial.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@editorial.errors.count, "error") %> prohibited this editorial from being saved:</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= form_for(@editorial) do |f| %>
+        <% if @editorial.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@editorial.errors.count, "error") %> prohibited this editorial from being saved:</h2>
 
-      <ul>
-      <% @editorial.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% @editorial.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <strong>Nombre Editorial</strong><br>
+          <%= f.text_field :NomEdi, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="actions">
+          <%= f.submit "Aceptar", class: "btn btn-success" %>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :NomEdi %><br>
-    <%= f.text_field :NomEdi %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

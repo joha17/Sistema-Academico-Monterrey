@@ -4,10 +4,10 @@
       <%= form_for(@user) do |f| %>
         <% if @user.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@query.errors.count, "error") %> prohibited this query from being saved:</h2>
+            <h2><%= pluralize(@user.errors.count, "error") %> Se encuentra un error con un espacion en blanco:</h2>
 
             <ul>
-            <% @query.errors.full_messages.each do |message| %>
+            <% @user.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
             </ul>
@@ -55,7 +55,6 @@
           </div>
          <div class="form--group">
           <strong>Role:</strong>
-          <%= f.select :role, options_for_select([["Administrador", "administrador"], ["Estudiante", "estudiante"], ["Profesor", "profesor"]]), class: "form-control" %>
           <%= collection_select(:user, :role_id, Role.all, :id, :nomRole, prompt: true) %>
          </div>
           <div class="form-group">

@@ -1,12 +1,30 @@
 <% if current_user %>
-<p id="notice"><%= notice %></p>
+<% if can? :show, Place %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1>Prestamos</h1>
+    </div>
+  </div>
 
-<h1>Listing Places</h1>
 
-<table>
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+      <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-1">
+    <%if can? :create, Place %>
+      <%= link_to "", new_place_path , class: "btn btn-success glyphicon glyphicon-plus" %>
+    <%end%>
+      </div>
+      </div>
+      </div>
+      <table class="table">
   <thead>
     <tr>
-      <th>Nomplace</th>
+      <th>Nombre de Lugar</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,10 +40,16 @@
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
+</div>
+
 
 <br>
 
-<%= link_to 'New Place', new_place_path %>
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>

@@ -1,9 +1,15 @@
 <% if current_user %>
-<h1>New Editorial</h1>
+<% if can? :create, Editorial %>
 
+<div class="text-center">
+	<h1>Nueva Editorial</h1>
+</div>
 <%= render 'form' %>
 
-<%= link_to 'Back', editorials_path %>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>

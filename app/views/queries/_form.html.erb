@@ -15,13 +15,15 @@
         <% end %>
 
         <div class="field">
-          <%= f.label :NomCon %><br>
+          <strong>Nombre del Consulta</strong><br>
           <%= f.text_field :NomCon, autofocus: true, class: "form-control" %>
         </div>
+        <br>
         <div class="field">
         <strong>Informcacion solicitada</strong><br>
           <%= f.text_area :info_solic, autofocus: true, class: "form-control" %>
         </div>
+        <br>
         <div class="field">
           <strong>Proposito</strong><br>
           <%= f.radio_button :propCons, 'Conferencia' %> 
@@ -30,7 +32,7 @@
           <%= f.label :propCons, 'Investigacion', :value => 'Investigacion' %>
           <%= f.radio_button :propCons, 'Otro' %>
           <%= f.label :propCons, 'Otro', :value => 'Otro' %>
-        </div>
+        </div> <br>
         <div class="field">
           <strong>Signatura</strong><br>
           <%= collection_select(:query, :signatura_id, Signatura.all, :id, :nomSig, prompt: true) %>
@@ -40,10 +42,12 @@
           <strong>Libros Consultados</strong><br>
           <%= f.text_area :libCons, autofocus: true, class: "form-control" %>
         </div>
+        <br>
         <div class="field">
           <strong>Nombre del Lector</strong><br>
           <%= f.text_field :nomLec, autofocus: true, class: "form-control" %>
         </div>
+        <br>
         <div class="field">
           <strong>Seccion</strong><br>
           <%= f.text_field :seccion, autofocus: true, class: "form-control" %>
@@ -52,12 +56,13 @@
           <strong>Para que dia necesita la informacion</strong><br>
           <%= f.date_select :FecCon, autofocus: true, class: "form-control" %>
         </div>
+        <br>
         <div class="field">
           <strong>Consulte lo siguiente</strong><br>
           <%= f.text_area :DesCon, autofocus: true, class: "form-control" %>
         </div><br>
         <div class="field">
-          <%= f.label :query_state_id %><br>
+          <strong>Estado Consulta</strong><br>
           <%= collection_select(:query, :query_state_id, QueryState.all, :id, :DeState, prompt: true) %>
           <%= link_to "Agregar Nuevo Estado de Consulta", query_states_path, class: "btn btn-success" %>
         </div><br><br>

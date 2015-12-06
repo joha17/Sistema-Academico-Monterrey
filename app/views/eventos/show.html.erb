@@ -1,4 +1,5 @@
 <% if current_user %>
+<% if can? :show, Evento %>
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
       <p id="notice"><%= notice %></p>
@@ -39,10 +40,15 @@
 			  <strong>Usuario:</strong>
 			  <%= @evento.user.NomUs %>
 			</p>
+			<br>
+			<p><%= link_to "Ir al listado de Eventos", eventos_path %></p>
 		</div>
 	</div>
 </div>
 
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>

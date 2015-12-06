@@ -1,4 +1,5 @@
 <% if current_user %>
+<% if can? :show, Signatura %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -8,6 +9,9 @@
 
 <%= link_to 'Edit', edit_signatura_path(@signatura) %> |
 <%= link_to 'Back', signaturas_path %>
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>

@@ -39,7 +39,7 @@ class PrestamosController < ApplicationController
 
     respond_to do |format|
       if @prestamo.save
-        format.html { redirect_to @prestamo, notice: 'Prestamo was successfully created.' }
+        format.html { redirect_to @prestamo, notice: 'El prestamo se ha creado satisfacatoriamente.' }
         format.json { render :show, status: :created, location: @prestamo }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class PrestamosController < ApplicationController
   def update
     respond_to do |format|
       if @prestamo.update(prestamo_params)
-        format.html { redirect_to @prestamo, notice: 'Prestamo was successfully updated.' }
+        format.html { redirect_to @prestamo, notice: 'El prestamo se ha editado satisfacatoriamente.' }
         format.json { render :show, status: :ok, location: @prestamo }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class PrestamosController < ApplicationController
   def destroy
     @prestamo.destroy
     respond_to do |format|
-      format.html { redirect_to prestamos_url, notice: 'Prestamo was successfully destroyed.' }
+      format.html { redirect_to prestamos_url, notice: 'El prestamo se ha eliminado satisfacatoriamente.' }
       format.json { head :no_content }
     end
   end

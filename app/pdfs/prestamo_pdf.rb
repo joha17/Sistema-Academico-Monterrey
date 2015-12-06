@@ -17,7 +17,6 @@ class PrestamoPdf < Prawn::Document
 	end
 
 	def signatura
-		move_down 20
 		text "Signatura: #{@prestamo.signatura.nomSig}", style: :bold
 	end
 
