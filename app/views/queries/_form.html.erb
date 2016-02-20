@@ -27,16 +27,16 @@
         <div class="field">
           <strong>Proposito</strong><br>
           <%= f.radio_button :propCons, 'Conferencia' %> 
-          <%= f.label :propCons, 'Conferencia', :value => 'Conferencia' %>
+          <%= f.label :propCons, 'Conferencia', :value => 'Conferencia', class:"orange" %>
           <%= f.radio_button :propCons, 'Investigacion' %>
-          <%= f.label :propCons, 'Investigacion', :value => 'Investigacion' %>
+          <%= f.label :propCons, 'Investigacion', :value => 'Investigacion', class:"orange" %>
           <%= f.radio_button :propCons, 'Otro' %>
-          <%= f.label :propCons, 'Otro', :value => 'Otro' %>
+          <%= f.label :propCons, 'Otro', :value => 'Otro', class:"orange" %>
         </div> <br>
         <div class="field">
           <strong>Signatura</strong><br>
           <%= collection_select(:query, :signatura_id, Signatura.all, :id, :nomSig, prompt: true) %>
-          <%= link_to "Agregar Nuevas Signatura", signaturas_path, class: "btn btn-success" %>
+          <%= link_to "Agregar Nueva Signatura", signaturas_path, class: "orange" %>
         </div><br>
         <div class="field">
           <strong>Libros Consultados</strong><br>
@@ -64,7 +64,7 @@
         <div class="field">
           <strong>Estado Consulta</strong><br>
           <%= collection_select(:query, :query_state_id, QueryState.all, :id, :DeState, prompt: true) %>
-          <%= link_to "Agregar Nuevo Estado de Consulta", query_states_path, class: "btn btn-success" %>
+          <%= link_to "Agregar Nuevo Estado de Consulta", query_states_path, class: "orange" %>
         </div><br><br>
         <div class="text-center">
                 <%= f.submit "Aceptar", class: "btn btn-primary" %>

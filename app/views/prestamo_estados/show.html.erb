@@ -1,18 +1,30 @@
-<% if current_user %>
+<body class="color-blue">
+	<% if current_user %>
 <p id="notice"><%= notice %></p>
-
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <p id="notice"><%= notice %></p>
+      <div class="jumbotron">
+        <div class="container">
+          
+           <div class="page-header">
+            <h1><%= @prestamo_estado.nomEstPres %><small></h1>
+          </div> 
 <p>
-  <strong>Nomestpres:</strong>
+  <strong class="orange">Nombre de Estado Prestamo:</strong>
   <%= @prestamo_estado.nomEstPres %>
 </p>
 
 <p>
-  <strong>Desestpres:</strong>
+  <strong class="orange">Descripcion:</strong>
   <%= @prestamo_estado.desEstPres %>
 </p>
 
-<%= link_to 'Edit', edit_prestamo_estado_path(@prestamo_estado) %> |
-<%= link_to 'Back', prestamo_estados_path %>
+  </div>
+      </div>
+    </div>
+  </div>
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>
+</body>

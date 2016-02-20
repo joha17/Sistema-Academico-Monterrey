@@ -1,72 +1,73 @@
-<div class="container">
+<body class="color-blue">
+  <div class="container">
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
 <div class="jumbotron text-center">
-  <h1><%= current_user.NomUs %></h1>
+  <h1 class="orange"><%= current_user.NomUs %></h1>
     <%= link_to image_tag(current_user.photo.url(:thumb), class: "img-circle"), current_user.photo.url %>
   <div>
   <br>
 
 <p>
-  <strong>Cedula:</strong>
+  <strong class="orange">Cedula:</strong>
   <%= current_user.CedUs %>
 </p>
 <p>
-  <strong>Nombre:</strong>
+  <strong class="orange">Nombre:</strong>
   <%= current_user.NomUs %>
 </p>
 
 <p>
-  <strong>Primer Apellido:</strong>
+  <strong class="orange">Primer Apellido:</strong>
   <%= current_user.ApUnoUs %>
 </p>
 
 <p>
-  <strong>Segundo Apellido:</strong>
+  <strong class="orange">Segundo Apellido:</strong>
   <%= current_user.ApDosUs %>
 </p>
 
 <p>
-  <strong>Edad:</strong>
+  <strong class="orange">Edad:</strong>
   <%= current_user.edadUs %>
 </p>
 
 <p>
-  <strong>Rol:</strong>
+  <strong class="orange">Rol:</strong>
   <%= current_user.role.nomRole %>
 </p>
 <p>
-  <strong>Nivel:</strong>
+  <strong class="orange">Nivel:</strong>
   <%= current_user.FK_NivUs %>
 </p>
 
 <p>
-  <strong>Fecha Ingreso:</strong>
+  <strong class="orange">Fecha Ingreso:</strong>
   <%= current_user.dt_ingUs %>
 </p>
 
 <p>
-  <strong>Fecha Salida:</strong>
+  <strong class="orange">Fecha Salida:</strong>
   <%= current_user.dt_salUs %>
 </p>
 
 <p>
-  <strong>Seccion:</strong>
+  <strong class="orange">Seccion:</strong>
   <%= current_user.SecUs %>
 </p>
 
 <p>
-  <strong>Telefono:</strong>
+  <strong class="orange">Telefono:</strong>
   <%= current_user.TelUs %>
 </p>
 
 <p>
-  <strong>Direccion:</strong>
+  <strong class="orange">Direccion:</strong>
   <%= current_user.FK_DirUs %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong class="orange">Email:</strong>
   <%= current_user.email %>
 </p>
 
@@ -78,3 +79,5 @@
 <br>
 <br>
 <br>
+
+</body>

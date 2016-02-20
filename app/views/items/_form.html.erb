@@ -38,7 +38,7 @@
           <strong>Lugar</strong><br>
           <%= collection_select(:item, :place_id, Place.all, :id, :NomPlace, prompt: true) %>
           <%if can? :create, Place %>
-            <%= link_to "Agregar nuevo Lugar", new_place_path %>
+            <%= link_to "Agregar nuevo Lugar", new_place_path, class: "orange" %>
           <%end%>
           <br>
         </div>
@@ -48,10 +48,10 @@
           <%= collection_select(:item, :category_id, Category.all, :id, :nomCategory, prompt: true) %>
           <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           </div>
-          <%= link_to 'Agregar nuevo categoria', new_category_path  %>
+          <%= link_to 'Agregar nuevo categoria', new_category_path, class: "orange"  %>
           
         </div>
-        <br>
+        <br><br>
         <div class="text-center">
           <%= f.submit "Aceptar", class: "btn btn-primary" %>
         </div>

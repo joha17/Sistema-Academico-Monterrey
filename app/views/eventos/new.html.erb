@@ -1,7 +1,8 @@
+<body class="color-blue">
 <% if current_user %>
 <% if can? :create, Evento%>
 <div class="text-center">
-	<h1>Nuevo Evento</h1>
+	<h2>Nuevo Evento</h2>
 </div>
 
 <%= render 'form' %>
@@ -14,3 +15,4 @@
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>
+</body>

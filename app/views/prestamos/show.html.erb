@@ -1,50 +1,51 @@
-<% if current_user %>
+<body class="color-blue">
+  <% if current_user %>
 <% if can? :show, Prestamo %>
 <p id="notice"><%= notice %></p>
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
       <div class="jumbotron">
         <div class="container">
-          <h3>Descripcion de Prestamo # <%=@prestamo.id%></h3>
+          <h3 class="orange">Descripcion de Prestamo # <%=@prestamo.id%></h3>
           <br>
 
           <p>
-            <strong>Libro:</strong>
+            <strong class="orange">Libro:</strong>
             <%= @prestamo.libro.TitLib %>
           </p>
 
           <p>
-            <strong>Autor:</strong>
+            <strong class="orange">Autor:</strong>
             <%= @prestamo.libro.AutLib %>
           </p>
 
           <p>
-            <strong>Numero de Innscrpcion:</strong>
+            <strong class="orange">Numero de Innscrpcion:</strong>
             <%= @prestamo.libro.numInsc %>
           </p>
 
           <p>
-            <strong>Fecha de Solicitud:</strong>
-            <%= @prestamo.fecSol %>
+            <strong class="orange">Fecha de Solicitud:</strong>
+            <%= @prestamo.created_at.strftime("%d-%m-%Y, HORA %l:%M") %>
           </p>
 
           <p>
-            <strong>Fecha de Devolucion:</strong>
+            <strong class="orange">Fecha de Devolucion:</strong>
             <%= @prestamo.fecDev %>
           </p>
 
           <p>
-            <strong>Usuario:</strong>
+            <strong class="orange">Usuario:</strong>
             <%= @prestamo.user.NomUs %>
           </p>
 
           <p>
-            <strong>Nombre del Solicitante:</strong>
+            <strong class="orange">Nombre del Solicitante:</strong>
             <%= @prestamo.nomSolic %>
           </p>
 
           <p>
-            <strong>Prestamo estado:</strong>
+            <strong class="orange">Prestamo estado:</strong>
             <%= @prestamo.prestamo_estado.nomEstPres %>
           </p>
           <div class >
@@ -63,3 +64,5 @@
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>
+
+</body>

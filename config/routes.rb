@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :descartes
   resources :signaturas
   resources :eventos
@@ -7,7 +8,9 @@ Rails.application.routes.draw do
   resources :prestamo_estados
   resources :libros
   resources :editorials
-  resources :queries
+  resources :queries do
+    resources :comments
+    end
   resources :query_states
   resources :items
   resources :categories
@@ -63,8 +66,7 @@ Rails.application.routes.draw do
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
-  #     resources :comments
-  #     resources :sales do
+  #     #     resources :sales do
   #       get 'recent', on: :collection
   #     end
   #   end

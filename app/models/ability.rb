@@ -13,6 +13,7 @@ class Ability
      can [:show, :read], Descarte
      can [:show, :read], Prestamo
      can [:show, :read], Evento
+     can [:create, :update, :destroy ], PrestamoEstado
      can [:create, :update, :destroy], Query, :user_id => user.id
      can [:create, :update, :destroy], Descarte, :user_id => user.id
      can [:create, :update], Prestamo, :user_id => user.id

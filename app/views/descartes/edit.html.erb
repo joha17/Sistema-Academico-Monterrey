@@ -1,3 +1,8 @@
-<h1>Editing Descarte</h1>
-
+<body class="color-blue">
+<% if current_user %>
+	<h1>Editing Descarte</h1>
 <%= render 'form' %>
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+</body>

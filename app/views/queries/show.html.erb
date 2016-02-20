@@ -1,3 +1,4 @@
+<body class="color-blue">
 <% if current_user %>
 <% if can? :show, Query %>
 <div class="row">
@@ -10,52 +11,52 @@
             <h1><%= @query.NomCon %><small> <%= @query.user.NomUs %></small></h1>
           </div> 
             <p>
-              <strong>Tema:</strong>
+              <strong class="orange">Tema:</strong>
               <%= @query.NomCon %>
             </p>
 
             <p>
-              <strong>Información Solicitada:</strong>
+              <strong class="orange">Información Solicitada:</strong>
               <%= @query.info_solic %>
             </p>
 
             <p>
-              <strong>Proposito:</strong>
+              <strong class="orange">Proposito:</strong>
               <%= @query.propCons %>
             </p>
 
             <p>
-              <strong>Asignatura:</strong>
+              <strong class="orange">Asignatura:</strong>
               <%= @query.signatura.nomSig %>
             </p>
 
             <p>
-              <strong>Libros consultados:</strong>
+              <strong class="orange">Libros consultados:</strong>
               <%= @query.NomCon %>
             </p>
 
             <p>
-              <strong>Sección:</strong>
+              <strong class="orange">Sección:</strong>
               <%= @query.seccion %>
             </p>
 
             <p>
-              <strong>Para que día necesita la inforamación:</strong>
+              <strong class="orange">Para que día necesita la inforamación:</strong>
               <%= @query.FecCon %>
             </p>
 
             <p>
-              <strong>Consulte la información solicitada</strong>
+              <strong class="orange">Consulte la información solicitada</strong>
               <%= @query.DesCon %>
             </p>
 
             <p>
-              <strong>Usuario:</strong>
+              <strong class="orange">Usuario:</strong>
               <%= @query.user.NomUs %>
             </p>
 
             <p>
-              <strong>Estado Consulta:</strong>
+              <strong class="orange">Estado Consulta:</strong>
               <%= @query.query_state.DeState %>
             </p>
             <p><%= link_to 'Ir a la lista de Consultas', queries_path %></p>
@@ -67,10 +68,37 @@
   <br>
   <br>
 
-  <%else%>
-    <div class="alert alert-danger" role="alert">No estas Autorizado</div>
-  <%end%>
+ 
+ 
+<div class= "text-center">
+  <h2>Respuestas</h2>
+<% @query.comments.each do |comment| %>
+ 
+  <p>
+    <strong>Respuesta:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+ 
+<h2>Agregar respuestas:</h2>
+<%= form_for([@query, @query.comments.build]) do |f| %>
+  
+  <p>
+    <strong>Texto</strong><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit "Agregar Respuesta", class: "btn btn-primary" %>
+  </p>
+<% end %>
+
+</div>
+ 
+
+    <br><br><br><br>
 
   <%else%>
-  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
-<%end%>
+    <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <% end %>
+  <% end %>
+</body>

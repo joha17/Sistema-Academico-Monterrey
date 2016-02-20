@@ -1,9 +1,30 @@
-<% if current_user %>
+<body class="color-blue">
+  <% if current_user %>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Prestamo Estados</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1>Estados de Prestamo</h1>
+    </div>
+  </div>
 
-<table>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+      <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-1">
+    <%if can? :create, PrestamoEstado %>
+      <%= link_to "", new_prestamo_estado_path , class: "btn btn-success glyphicon glyphicon-plus" %>
+    <%end%>
+
+      </div>
+      </div>
+      </div>
+<table class="table">
   <thead>
     <tr>
       <th>Nomestpres</th>
@@ -27,8 +48,8 @@
 
 <br>
 
-<%= link_to 'New Prestamo estado', new_prestamo_estado_path %>
-
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>
+
+</body>

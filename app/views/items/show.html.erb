@@ -1,4 +1,5 @@
-<% if current_user %>
+<body class="color-blue">
+  <% if current_user %>
 <% if can? :show, Item %>
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
@@ -6,32 +7,32 @@
       <div class="jumbotron">
         <div class="container">
           <p>
-            <strong>Nombre:</strong>
+            <strong class="orange">Nombre:</strong>
             <%= @item.nomItem %>
           </p>
 
           <p>
-            <strong>Descripcion:</strong>
+            <strong class="orange">Descripcion:</strong>
             <%= @item.desItem %>
           </p>
 
           <p>
-            <strong>Cantidad:</strong>
+            <strong class="orange">Cantidad:</strong>
             <%= @item.canItem %>
           </p>
 
           <p>
-            <strong>Usuario:</strong>
+            <strong class="orange">Usuario:</strong>
             <%= @item.user.NomUs %>
           </p>
 
           <p>
-            <strong>Lugar:</strong>
+            <strong class="orange">Lugar:</strong>
             <%= @item.place.NomPlace %>
           </p>
 
           <p>
-            <strong>Categoria:</strong>
+            <strong class="orange">Categoria:</strong>
             <%= @item.category.nomCategory %>
           </p>
           <br>
@@ -49,3 +50,5 @@
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>
+
+</body>

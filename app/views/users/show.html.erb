@@ -1,4 +1,5 @@
-<% if current_user %>
+<body class="color-blue">
+  <% if current_user %>
 <% if can? :create, User %>
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
@@ -6,53 +7,53 @@
       <div class="jumbotron">
         <div class="container">
             <p>
-              <strong>Nombre:</strong>
+              <strong class="orange">Nombre:</strong>
               <%= @user.NomUs %>
             </p>
 
             <p>
-              <strong>Primer Apellido:</strong>
+              <strong class="orange">Primer Apellido:</strong>
               <%= @user.ApUnoUs %>
             </p>
 
             <p>
-              <strong>Segundo Apellido:</strong>
+              <strong class="orange">Segundo Apellido:</strong>
               <%= @user.ApDosUs %>
             </p>
 
             <p>
-              <strong>Seccion:</strong>
+              <strong class="orange">Seccion:</strong>
               <%= @user.SecUs %>
             </p>
 
             <p>
-              <strong>Rol:</strong>
+              <strong class="orange">Rol:</strong>
               <%= @user.role.nomRole %>
             </p>
 
             <p>
-              <strong>Cedula:</strong>
+              <strong class="orange">Cedula:</strong>
               <%= @user.CedUs %>
             </p>
 
             <p>
-              <strong>Edad:</strong>
+              <strong class="orange">Edad:</strong>
               <%= @user.edadUs %>
             </p>
 
             <p>
-              <strong>Nivel:</strong>
+              <strong class="orange">Nivel:</strong>
               <%= @user.FK_NivUs %>
             </p>
 
             <p>
-              <strong>Direccion:</strong>
+              <strong class="orange">Direccion:</strong>
               <%= @user.dirUs %>
             </p>
 
             <p>
-              <strong>Fecha de Ingreso:</strong>
-              <%= @user.created_at %>
+              <strong class="orange">Fecha de Ingreso:</strong>
+              <%= @user.created_at.strftime("%d-%m-%Y") %>
             </p>
             <br>
             <div class >
@@ -72,3 +73,5 @@
   <%else%>
 <div class="alert alert-danger" role="alert">No estas Autorizado</div>
   <%end%>
+
+</body>

@@ -21,4 +21,81 @@
   background: image-url('inventory.jpg');
 }
 
+.background-index {
+
+  background: url("books3.jpg");
+
+  /* Nos aseguramos que la imagen de fondo este centrada vertical y
+    horizontalmente en todo momento */
+  background-position: center center;
+
+  /* La imagen de fondo no se repite */
+  background-repeat: no-repeat;
+
+  /* La imagen de fondo está fija en el viewport, de modo que no se mueva cuando
+     la altura del contenido supere la altura de la imagen. */
+  background-attachment: fixed;
+
+  /* La imagen de fondo se reescala cuando se cambia el ancho de ventana
+     del navegador */
+  background-size: cover;
+
+  /* Fijamos un color de fondo para que se muestre mientras se está
+    cargando la imagen de fondo o si hay problemas para cargarla  */
+  background-color: #12222A;
+
+  color: white 
+}
+
+body{
+	font-family: 'Lucida Console', Monaco, monospace;
+}
+
+h1, h3, strong{ color: #DCDCE4 }
+h2	{color: #FF9566}
+th, p, td{color: #2E3A40}
+a { color: #3D3D41}
+span {color: #CDA284}
+
+
+.color-black {
+	background-color: #383838
+}
+
+.color-black2 {
+	background-color: #222222
+}
+
+.color-white {
+	background-color: #FFFFFF
+}
+
+.color-white2 {
+	background-color: #D7D9D8
+}	
+
+.color-blue {
+	background-color: #12222A
+}
+
+.color-green {
+	background-color: #85A78C
+}
+
+.color-orange {
+	background-color: #CDA284
+}
+
+.orange {
+	color: #CDA284
+}
+
+.blue {
+	color: #12222A;
+}
+
+.white {
+	color: #FFFFFF;
+}
+
 

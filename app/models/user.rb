@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :consults
   has_many :items
   has_many :descartes
+  has_many :users
   belongs_to :role
 
   validates :CedUs,

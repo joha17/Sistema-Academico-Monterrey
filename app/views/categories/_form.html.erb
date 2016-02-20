@@ -1,25 +1,32 @@
-<%= form_for(@category) do |f| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= form_for(@category) do |f| %>
+        <% if @category.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@category.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-      <ul>
-      <% @category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% @category.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :nomCategory %><br>
+          <%= f.text_field :nomCategory, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= f.label :desCategory %><br>
+          <%= f.text_area :desCategory, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+          <div class="text-center">
+            <%= f.submit "Aceptar", class: "btn btn-primary" %>
+          </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :nomCategory %><br>
-    <%= f.text_field :nomCategory %>
   </div>
-  <div class="field">
-    <%= f.label :desCategory %><br>
-    <%= f.text_area :desCategory %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
