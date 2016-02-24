@@ -7,16 +7,16 @@ class Ability
    if user.role_id == 1
     #puede hacer todo
      can :manage, :all
+
    elsif user.role_id == 2
     #si es profesor puede ver libros y eventos
      can [:show, :read], Libro
      can [:show, :read], Descarte
-     can [:show, :read], Prestamo
      can [:show, :read], Evento
-     can [:create, :update, :destroy ], PrestamoEstado
+     can [:show, :read], Prestamo
      can [:create, :update, :destroy], Query, :user_id => user.id
      can [:create, :update, :destroy], Descarte, :user_id => user.id
-     can [:create, :update], Prestamo, :user_id => user.id
+     can :create, Prestamo, :user_id => user.id
      can [:create, :update, :destroy], Evento, :user_id => user.id
 
      #can :manage, Evento, :id => user.id    

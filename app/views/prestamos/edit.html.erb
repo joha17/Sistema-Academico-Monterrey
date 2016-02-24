@@ -1,6 +1,14 @@
-<h1>Editing Prestamo</h1>
 
-<%= render 'form' %>
+<body class="color-blue">
+	<% if current_user %>
+		<% if can? :edit, Prestamo %>
+			<h1 class="text-center">Editar Prestamo</h1>
+			<%= render 'form_edit' %>
+		<%else%>
+		  	<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+		<%end%>
+	<%else%>
+  		<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+	<%end%>
 
-<%= link_to 'Show', @prestamo %> |
-<%= link_to 'Back', prestamos_path %>
+</body>

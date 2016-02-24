@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :comments
   resources :descartes
   resources :signaturas
   resources :eventos
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   resources :editorials
   resources :queries do
     resources :comments
-    end
+  end
   resources :query_states
   resources :items
   resources :categories

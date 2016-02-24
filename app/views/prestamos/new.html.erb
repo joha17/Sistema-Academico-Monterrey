@@ -1,14 +1,18 @@
 <body class="color-blue">
 	<% if current_user %>
-<div class="text-center">
-	<h1>Nuevo Prestamo</h1>
-</div>
+		<% if can? :create, Prestamo %>
+			<div class="text-center">
+				<h1>Nuevo Prestamo</h1>
+			</div>
 
 
-<%= render 'form' %>
+			<%= render 'form' %>
 
-<%else%>
-  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
-<%end%>
+		<%else%>
+		  	<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+		<%end%>
+	<%else%>
+  		<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+	<%end%>
 
 </body>

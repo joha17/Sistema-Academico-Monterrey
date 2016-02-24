@@ -69,31 +69,23 @@
   <br>
 
  
- 
-<div class= "text-center">
-  <h2>Respuestas</h2>
-<% @query.comments.each do |comment| %>
- 
-  <p>
-    <strong>Respuesta:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
- 
-<h2>Agregar respuestas:</h2>
-<%= form_for([@query, @query.comments.build]) do |f| %>
-  
-  <p>
-    <strong>Texto</strong><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit "Agregar Respuesta", class: "btn btn-primary" %>
-  </p>
-<% end %>
-
-</div>
- 
+  <div class="field text-center">
+    <h3>Respuestas</h3>
+    <ul>
+      <% @query.comments.each do |comment| %>
+      <li class="orange">
+        <%= comment.user.NomUs %>: <%= comment.body %>
+        <p>
+          <%= link_to 'Eiminar', comment, method: :delete, class: "white", data: { confirm: 'Are you sure?' } %> | 
+          <%= link_to 'Editar', edit_comment_path(comment), class: "white" %>
+        </p>
+      </li>
+      <% end %>
+      <br><br>
+    </ul>
+    <%= render "comments/form" %>
+  </div>
+    
 
     <br><br><br><br>
 

@@ -2,10 +2,10 @@
 
 one:
   body: MyText
-  query_id: 
   user_id: 
+  query_id: 
 
 two:
   body: MyText
-  query_id: 
   user_id: 
+  query_id: 

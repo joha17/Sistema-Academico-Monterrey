@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   has_many :consults
   has_many :items
   has_many :descartes
-  has_many :users
+  has_many :queries
+  has_many :comments
   belongs_to :role
 
   validates :CedUs,

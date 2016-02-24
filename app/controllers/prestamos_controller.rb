@@ -35,6 +35,8 @@ class PrestamosController < ApplicationController
   # POST /prestamos.json
   def create
     @prestamo = Prestamo.new(prestamo_params)
+    @prestamo.fecDev = Time.now + 6.days
+    @prestamo.prestamo_estado_id = 1
     @prestamo.user = current_user
 
     respond_to do |format|

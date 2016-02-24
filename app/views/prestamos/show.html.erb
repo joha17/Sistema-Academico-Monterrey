@@ -26,12 +26,12 @@
 
           <p>
             <strong class="orange">Fecha de Solicitud:</strong>
-            <%= @prestamo.created_at.strftime("%d-%m-%Y, HORA %l:%M") %>
+            <%= @prestamo.created_at.strftime("%d-%m-%Y") %>
           </p>
 
           <p>
             <strong class="orange">Fecha de Devolucion:</strong>
-            <%= @prestamo.fecDev %>
+            <%= @prestamo.fecDev.strftime("%d-%m-%Y") %>
           </p>
 
           <p>

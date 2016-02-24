@@ -10,6 +10,7 @@ class QueriesController < ApplicationController
   # GET /queries/1
   # GET /queries/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /queries/new
