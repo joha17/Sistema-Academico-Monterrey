@@ -1,0 +1,18 @@
+<% if current_user %>
+<% if can? :show, Role %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomrole:</strong>
+  <%= @role.nomRole %>
+</p>
+
+
+<%= link_to 'Edit', edit_role_path(@role) %> |
+<%= link_to 'Back', roles_path %>
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= form_for(@evento) do |f| %>
+        <% if @evento.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
+
+            <ul>
+            <% @evento.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <strong>Tema del Evento</strong><br>
+          <%= f.text_field :NomEven, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Fecha del Evento</strong><br>
+          <%= f.date_select :FecEvent, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Objetivos</strong><br>
+          <%= f.text_area :objEven, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Responsables</strong><br>
+          <%= f.text_area :respEven, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Participantes</strong><br>
+          <%= f.text_area :partEven, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Actividades</strong><br>
+          <%= f.text_area :DesEven, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="actions text-center">
+          <%= f.submit "Aceptar", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

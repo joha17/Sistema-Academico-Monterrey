@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  NomEven: MyString
+  DesEven: MyText
+  FecEvent: 2015-11-26
+  user_id: 
+
+two:
+  NomEven: MyString
+  DesEven: MyText
+  FecEvent: 2015-11-26
+  user_id: 

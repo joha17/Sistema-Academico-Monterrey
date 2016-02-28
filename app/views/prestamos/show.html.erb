@@ -1,0 +1,68 @@
+<body class="color-blue">
+  <% if current_user %>
+<% if can? :show, Prestamo %>
+<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="jumbotron">
+        <div class="container">
+          <h3 class="orange">Descripcion de Prestamo # <%=@prestamo.id%></h3>
+          <br>
+
+          <p>
+            <strong class="orange">Libro:</strong>
+            <%= @prestamo.libro.TitLib %>
+          </p>
+
+          <p>
+            <strong class="orange">Autor:</strong>
+            <%= @prestamo.libro.AutLib %>
+          </p>
+
+          <p>
+            <strong class="orange">Numero de Innscrpcion:</strong>
+            <%= @prestamo.libro.numInsc %>
+          </p>
+
+          <p>
+            <strong class="orange">Fecha de Solicitud:</strong>
+            <%= @prestamo.created_at.strftime("%d-%m-%Y") %>
+          </p>
+
+          <p>
+            <strong class="orange">Fecha de Devolucion:</strong>
+            <%= @prestamo.fecDev.strftime("%d-%m-%Y") %>
+          </p>
+
+          <p>
+            <strong class="orange">Usuario:</strong>
+            <%= @prestamo.user.NomUs %>
+          </p>
+
+          <p>
+            <strong class="orange">Nombre del Solicitante:</strong>
+            <%= @prestamo.nomSolic %>
+          </p>
+
+          <p>
+            <strong class="orange">Prestamo estado:</strong>
+            <%= @prestamo.prestamo_estado.nomEstPres %>
+          </p>
+          <div class >
+            <p><%= link_to "Ir al listado de Prestamos", prestamos_path %></p> 
+            <%= link_to "Imprimir Prestamo", prestamo_path(@prestamo, format: "pdf", class: "btn btn-primary") %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+
+</body>

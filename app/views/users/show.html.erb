@@ -1,0 +1,77 @@
+<body class="color-blue">
+  <% if current_user %>
+<% if can? :create, User %>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <p id="notice"><%= notice %></p>
+      <div class="jumbotron">
+        <div class="container">
+            <p>
+              <strong class="orange">Nombre:</strong>
+              <%= @user.NomUs %>
+            </p>
+
+            <p>
+              <strong class="orange">Primer Apellido:</strong>
+              <%= @user.ApUnoUs %>
+            </p>
+
+            <p>
+              <strong class="orange">Segundo Apellido:</strong>
+              <%= @user.ApDosUs %>
+            </p>
+
+            <p>
+              <strong class="orange">Seccion:</strong>
+              <%= @user.SecUs %>
+            </p>
+
+            <p>
+              <strong class="orange">Rol:</strong>
+              <%= @user.role.nomRole %>
+            </p>
+
+            <p>
+              <strong class="orange">Cedula:</strong>
+              <%= @user.CedUs %>
+            </p>
+
+            <p>
+              <strong class="orange">Edad:</strong>
+              <%= @user.edadUs %>
+            </p>
+
+            <p>
+              <strong class="orange">Nivel:</strong>
+              <%= @user.FK_NivUs %>
+            </p>
+
+            <p>
+              <strong class="orange">Direccion:</strong>
+              <%= @user.dirUs %>
+            </p>
+
+            <p>
+              <strong class="orange">Fecha de Ingreso:</strong>
+              <%= @user.created_at.strftime("%d-%m-%Y") %>
+            </p>
+            <br>
+            <div class >
+            <p><%= link_to "Imprimir Carnet", user_path(@user, format: "pdf", class: "btn btn-primary") %></p>
+            <p><%= link_to "Ir al listado de Usuarios", users_path %></p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>
+  <%else%>
+<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>
+
+</body>

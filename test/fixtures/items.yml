@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nomItem: MyString
+  desItem: MyText
+  user_id: 
+  place_id: 
+  category_id: 
+
+two:
+  nomItem: MyString
+  desItem: MyText
+  user_id: 
+  place_id: 
+  category_id: 

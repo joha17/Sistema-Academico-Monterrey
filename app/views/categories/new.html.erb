@@ -1,0 +1,14 @@
+<% if current_user %>
+<% if can? :create, Category %>
+<div class="text-center">
+	<h1>Nueva Categoria</h1>
+</div>
+
+<%= render 'form' %>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

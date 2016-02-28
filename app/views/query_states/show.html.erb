@@ -1,0 +1,13 @@
+<% if current_user %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>DeState:</strong>
+  <%= @query_state.DeState %>
+</p>
+
+<%= link_to 'Edit', edit_query_state_path(@query_state) %> |
+<%= link_to 'Back', query_states_path %>
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

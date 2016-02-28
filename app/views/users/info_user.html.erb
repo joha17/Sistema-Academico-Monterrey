@@ -1,0 +1,83 @@
+<body class="color-blue">
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+<div class="jumbotron text-center">
+  <h1 class="orange"><%= current_user.NomUs %></h1>
+    <%= link_to image_tag(current_user.photo.url(:thumb), class: "img-circle"), current_user.photo.url %>
+  <div>
+  <br>
+
+<p>
+  <strong class="orange">Cedula:</strong>
+  <%= current_user.CedUs %>
+</p>
+<p>
+  <strong class="orange">Nombre:</strong>
+  <%= current_user.NomUs %>
+</p>
+
+<p>
+  <strong class="orange">Primer Apellido:</strong>
+  <%= current_user.ApUnoUs %>
+</p>
+
+<p>
+  <strong class="orange">Segundo Apellido:</strong>
+  <%= current_user.ApDosUs %>
+</p>
+
+<p>
+  <strong class="orange">Edad:</strong>
+  <%= current_user.edadUs %>
+</p>
+
+<p>
+  <strong class="orange">Rol:</strong>
+  <%= current_user.role.nomRole %>
+</p>
+<p>
+  <strong class="orange">Nivel:</strong>
+  <%= current_user.FK_NivUs %>
+</p>
+
+<p>
+  <strong class="orange">Fecha Ingreso:</strong>
+  <%= current_user.dt_ingUs %>
+</p>
+
+<p>
+  <strong class="orange">Fecha Salida:</strong>
+  <%= current_user.dt_salUs %>
+</p>
+
+<p>
+  <strong class="orange">Seccion:</strong>
+  <%= current_user.SecUs %>
+</p>
+
+<p>
+  <strong class="orange">Telefono:</strong>
+  <%= current_user.TelUs %>
+</p>
+
+<p>
+  <strong class="orange">Direccion:</strong>
+  <%= current_user.FK_DirUs %>
+</p>
+
+<p>
+  <strong class="orange">Email:</strong>
+  <%= current_user.email %>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+
+</body>

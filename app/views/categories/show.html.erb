@@ -1,0 +1,19 @@
+<% if current_user %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre de Categoria:</strong>
+  <%= @category.nomCategory %>
+</p>
+
+<p>
+  <strong>Descripcion de la Categoria:</strong>
+  <%= @category.desCategory %>
+</p>
+
+<p><%= link_to "Volver a Inventario", items_path %></p>
+<%= link_to 'Ir al listado de categorias', categories_path %>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

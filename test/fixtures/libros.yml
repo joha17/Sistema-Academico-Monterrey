@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  TitLib: MyString
+  AutLib: MyString
+  EdicLib: MyString
+  AnioLib: 1
+  FecLib: 2015-11-17 04:11:08
+  LugLib: MyString
+  ObsLib: MyText
+  DesLib: MyText
+  CantLib: 1
+  Disp: 1
+  CodDewLib: MyString
+  editorial_id: 
+
+two:
+  TitLib: MyString
+  AutLib: MyString
+  EdicLib: MyString
+  AnioLib: 1
+  FecLib: 2015-11-17 04:11:08
+  LugLib: MyString
+  ObsLib: MyText
+  DesLib: MyText
+  CantLib: 1
+  Disp: 1
+  CodDewLib: MyString
+  editorial_id: 

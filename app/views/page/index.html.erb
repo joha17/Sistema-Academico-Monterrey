@@ -1,0 +1,24 @@
+<body class="background-index">
+  <br><br>
+<div class="col-md-12 col-md-offset-0">
+    <div class="text-center">
+      <br><br><br><br><br><br><br><br><br><br><br>
+    <h1 class="blue">ESCUELA MONTERREY</h1><br>
+  <strong>Bienvenidos al Sistema Bibliotecario de la Escuela Monterrey</strong>
+  <% if current_user %>
+  <%else%><br><br><br><br><br>
+  <h3><%= link_to "Iniciar sesion", login_path, class: "white" %></h3>
+  <!--<p><a href="" data-toggle="modal" data-target=".bs-example-modal-lg", class= "btn btn-primary btn-lg">Iniciar Sesion</a></p>-->
+  <%end%>
+  </div>
+</div>
+
+          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <%= render "layouts/new" %>
+              </div>
+            </div>
+          </div>
+  
+</body>

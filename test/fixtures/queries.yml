@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  NomCon: MyString
+  DesCon: MyString
+  FecCon: 2015-11-17
+  user_id: 
+  query_state_id: 
+
+two:
+  NomCon: MyString
+  DesCon: MyString
+  FecCon: 2015-11-17
+  user_id: 
+  query_state_id: 

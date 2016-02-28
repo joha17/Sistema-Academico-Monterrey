@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= form_for(@libro) do |f| %>
+        <% if @libro.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@libro.errors.count, "error") %> prohibited this libro from being saved:</h2>
+
+            <ul>
+            <% @libro.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <strong>Numero de Inscripcion</strong><br>
+          <%= f.text_field :id, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Titulo del libro</strong><br>
+          <%= f.text_field :TitLib, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Autor del libro</strong><br>
+          <%= f.text_field :AutLib, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Edicion del libro</strong><br>
+          <%= f.text_field :EdicLib, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Editorial</strong> <br>
+          <%= collection_select(:libro, :editorial_id, Editorial.all, :id, :NomEdi, prompt: true) %>
+          <%= link_to "Agregar nueva editorial", new_editorial_path %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Año del Libro</strong><br>
+          <%= f.number_field :AnioLib, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Fecha del libro</strong><br>
+          <%= f.datetime_select :FecLib, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+        <strong>Lugar del Libro</strong><br>
+          <%= f.text_field :LugLib, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Observaciones del Libro</strong><br>
+          <%= f.text_area :ObsLib, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Descripcion</strong><br>
+          <%= f.text_area :DesLib, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Cantidad</strong><br>
+          <%= f.number_field :CantLib, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Codigo Deway</strong><br>
+          <%= f.text_field :CodDewLib, autofocus: true, class: "form-control" %>
+        </div><br>
+        <div class="text-center">
+                <%= f.submit "Aceptar", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
