@@ -4,18 +4,18 @@ development:
   database: EscuelaApp_development
   pool: 5
   username: root
-  password: megapanza17
+  password: admin
 test:
   adapter: mysql
   encoding: utf8
   database: EscuelaApp_test
   pool: 5
   username: root
-  password: megapanza17
+  password: admin
 production:
   adapter: mysql
   encoding: utf8
   database: EscuelaApp_production
   pool: 5
   username: root
-  password: megapanza17
+  password: admin

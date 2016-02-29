@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220151541) do
+ActiveRecord::Schema.define(version: 20151127172107) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "nomCategory", limit: 255
@@ -126,11 +126,11 @@ ActiveRecord::Schema.define(version: 20160220151541) do
     t.integer  "prestamo_estado_id", limit: 4
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "signatura_id",       limit: 4
     t.string   "biblioteca",         limit: 255
-    t.date     "vence"
     t.string   "nomSolic",           limit: 255
     t.string   "seccion",            limit: 255
-    t.integer  "signatura_id",       limit: 4
+    t.integer  "numInsc",            limit: 4
   end
 
   add_index "prestamos", ["libro_id"], name: "index_prestamos_on_libro_id", using: :btree
@@ -164,9 +164,12 @@ ActiveRecord::Schema.define(version: 20160220151541) do
 
   create_table "roles", force: :cascade do |t|
     t.string   "nomRole",    limit: 255
+    t.integer  "user_id",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "roles", ["user_id"], name: "index_roles_on_user_id", using: :btree
 
   create_table "signaturas", force: :cascade do |t|
     t.string   "nomSig",                                limit: 255
@@ -202,4 +205,18 @@ ActiveRecord::Schema.define(version: 20160220151541) do
 
   add_foreign_key "comments", "queries"
   add_foreign_key "comments", "users"
+  add_foreign_key "descartes", "libros"
+  add_foreign_key "descartes", "signaturas"
+  add_foreign_key "descartes", "users"
+  add_foreign_key "eventos", "users"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "places"
+  add_foreign_key "items", "users"
+  add_foreign_key "libros", "editorials"
+  add_foreign_key "prestamos", "libros"
+  add_foreign_key "prestamos", "prestamo_estados"
+  add_foreign_key "prestamos", "users"
+  add_foreign_key "queries", "query_states"
+  add_foreign_key "queries", "users"
+  add_foreign_key "roles", "users"
 end
