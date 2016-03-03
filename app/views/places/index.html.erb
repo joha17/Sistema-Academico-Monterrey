@@ -1,9 +1,12 @@
+<body class="color-blue">
+
+</body>
 <% if current_user %>
 <% if can? :show, Place %>
 <div class="container">
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-      <h1>Prestamos</h1>
+      <h1 class="orange">Lugar en la institucion</h1>
     </div>
   </div>
 
@@ -33,9 +36,9 @@
     <% @places.each do |place| %>
       <tr>
         <td><%= place.NomPlace %></td>
-        <td><%= link_to 'Show', place %></td>
-        <td><%= link_to 'Edit', edit_place_path(place) %></td>
-        <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', place, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
+        <td><%= link_to '', edit_place_path(place), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
+        <td><%= link_to '', place, method: :delete, class: "btn btn-warning glyphicon glyphicon-trash", data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

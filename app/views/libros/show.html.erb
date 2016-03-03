@@ -6,10 +6,15 @@
       <p id="notice"><%= notice %></p>
       <div class="jumbotron">
         <div class="container">
-          
+
            <div class="page-header">
             <h1><%= @libro.TitLib %><small> <%= @libro.AutLib %></small></h1>
-          </div> 
+          </div>
+
+          <p>
+            <strong class="orange">Numero de Inscripcion:</strong>
+            <%= @libro.numInsc %>
+          </p>
 
           <p>
             <strong class="orange">Editorial:</strong>
@@ -24,11 +29,6 @@
           <p>
             <strong class="orange">Año:</strong>
             <%= @libro.AnioLib %>
-          </p>
-
-          <p>
-            <strong class="orange">Fecha del libro:</strong>
-            <%= @libro.FecLib.strftime("%d-%m-%Y") %>
           </p>
 
           <p>
@@ -52,11 +52,6 @@
           </p>
 
           <p>
-            <strong class="orange">Disponibles:</strong>
-            <%= @libro.Disp %>
-          </p>
-
-          <p>
             <strong class="orange">Codígo Deway:</strong>
             <%= @libro.CodDewLib %>
           </p>
@@ -76,4 +71,4 @@
 <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>
-</body>  
+</body>

@@ -14,7 +14,7 @@
 
 			<p>
 			  <strong class="orange">Fecha del evento:</strong>
-			  <%= @evento.FecEvent %>
+			  <%= @evento.FecEvent.strftime("%d-%m-%Y Hora: %H:%M") %>
 			</p>
 
 			<p>
@@ -39,7 +39,7 @@
 
 			<p>
 			  <strong class="orange">Usuario:</strong>
-			  <%= @evento.user.NomUs %>
+			  <%= @evento.user.NomUs %> <%= @evento.user.ApUnoUs %> <%= @evento.user.ApDosUs %>
 			</p>
 			<br>
 			<p><%= link_to "Ir al listado de Eventos", eventos_path %></p>

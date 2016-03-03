@@ -1,9 +1,13 @@
-<% if current_user %>
-<h1>New Query State</h1>
+<body class="color-blue">
+  <% if current_user %>
+  <div class="text-center">
+    <h1 class="orange">Nuevo Estado de consulta</h1>
+    <br>
+    <%= render 'form' %>
 
-<%= render 'form' %>
+  </div>
 
-<%= link_to 'Back', query_states_path %>
-<%else%>
-  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
-<%end%>
+  <%else%>
+    <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>
+</body>

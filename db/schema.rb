@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220151541) do
+ActiveRecord::Schema.define(version: 20160302234450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,15 +35,11 @@ ActiveRecord::Schema.define(version: 20160220151541) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "descartes", force: :cascade do |t|
-    t.text     "obserDesc"
-    t.date     "fechaDesc"
-    t.integer  "cantLibSug"
-    t.integer  "cantLibDes"
-    t.string   "autLibSug"
-    t.string   "titLibSug"
+    t.text     "ObsDesc"
+    t.integer  "CantLibDesc"
     t.integer  "user_id"
-    t.integer  "signatura_id"
     t.integer  "libro_id"
+    t.integer  "signatura_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -61,13 +57,13 @@ ActiveRecord::Schema.define(version: 20160220151541) do
   create_table "eventos", force: :cascade do |t|
     t.string   "NomEven"
     t.text     "DesEven"
-    t.date     "FecEvent"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text     "objEven"
     t.text     "respEven"
     t.text     "partEven"
+    t.datetime "FecEvent"
   end
 
   add_index "eventos", ["user_id"], name: "index_eventos_on_user_id", using: :btree
@@ -92,18 +88,17 @@ ActiveRecord::Schema.define(version: 20160220151541) do
     t.string   "AutLib"
     t.string   "EdicLib"
     t.integer  "AnioLib"
-    t.datetime "FecLib"
     t.string   "LugLib"
     t.text     "ObsLib"
     t.text     "DesLib"
     t.integer  "CantLib"
     t.integer  "Disp"
-    t.string   "CodDewLib"
     t.integer  "editorial_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "NomEdi"
     t.integer  "numInsc"
+    t.text     "CodDewLib"
   end
 
   add_index "libros", ["editorial_id"], name: "index_libros_on_editorial_id", using: :btree
@@ -134,6 +129,8 @@ ActiveRecord::Schema.define(version: 20160220151541) do
     t.string   "seccion"
     t.integer  "numInsc"
     t.integer  "signatura_id"
+    t.string   "telSolic"
+    t.string   "nomDocente"
   end
 
   add_index "prestamos", ["libro_id"], name: "index_prestamos_on_libro_id", using: :btree
@@ -167,12 +164,9 @@ ActiveRecord::Schema.define(version: 20160220151541) do
 
   create_table "roles", force: :cascade do |t|
     t.string   "nomRole"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "roles", ["user_id"], name: "index_roles_on_user_id", using: :btree
 
   create_table "signaturas", force: :cascade do |t|
     t.string   "nomSig"
@@ -181,28 +175,35 @@ ActiveRecord::Schema.define(version: 20160220151541) do
     t.integer  "{:index=>true, :foreign_key=>true}_id"
   end
 
+  create_table "suggestions", force: :cascade do |t|
+    t.string   "AutSug"
+    t.string   "LibSug"
+    t.string   "CantSug"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "suggestions", ["user_id"], name: "index_suggestions_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "CedUs"
     t.string   "NomUs"
     t.string   "ApUnoUs"
     t.string   "ApDosUs"
-    t.integer  "edadUs"
     t.integer  "FK_NivUs"
     t.datetime "dt_ingUs"
     t.datetime "dt_salUs"
     t.string   "SecUs"
-    t.integer  "TelUs"
     t.integer  "FK_DirUs"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
     t.integer  "role_id"
     t.text     "dirUs"
+    t.string   "TelUs"
+    t.datetime "FecNacUs"
   end
 
   add_foreign_key "comments", "queries"
@@ -220,5 +221,5 @@ ActiveRecord::Schema.define(version: 20160220151541) do
   add_foreign_key "prestamos", "users"
   add_foreign_key "queries", "query_states"
   add_foreign_key "queries", "users"
-  add_foreign_key "roles", "users"
+  add_foreign_key "suggestions", "users"
 end

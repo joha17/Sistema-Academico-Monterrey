@@ -4,7 +4,7 @@
       <%= form_for(@place) do |f| %>
         <% if @place.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
+            <h2><%= pluralize(@place.errors.count, "error") %> Verifique que todos los datos esten completos:</h2>
 
             <ul>
             <% @place.errors.full_messages.each do |message| %>

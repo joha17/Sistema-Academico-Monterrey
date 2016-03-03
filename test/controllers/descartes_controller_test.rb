@@ -18,7 +18,7 @@ class DescartesControllerTest < ActionController::TestCase
 
   test "should create descarte" do
     assert_difference('Descarte.count') do
-      post :create, descarte: { fechaDesc: @descarte.fechaDesc, libro_id: @descarte.libro_id, obserDesc: @descarte.obserDesc, signatura_id: @descarte.signatura_id, user_id: @descarte.user_id }
+      post :create, descarte: { CantLibDesc: @descarte.CantLibDesc, ObsDesc: @descarte.ObsDesc, libro_id: @descarte.libro_id, signatura_id: @descarte.signatura_id, user_id: @descarte.user_id }
     end
 
     assert_redirected_to descarte_path(assigns(:descarte))
@@ -35,7 +35,7 @@ class DescartesControllerTest < ActionController::TestCase
   end
 
   test "should update descarte" do
-    patch :update, id: @descarte, descarte: { fechaDesc: @descarte.fechaDesc, libro_id: @descarte.libro_id, obserDesc: @descarte.obserDesc, signatura_id: @descarte.signatura_id, user_id: @descarte.user_id }
+    patch :update, id: @descarte, descarte: { CantLibDesc: @descarte.CantLibDesc, ObsDesc: @descarte.ObsDesc, libro_id: @descarte.libro_id, signatura_id: @descarte.signatura_id, user_id: @descarte.user_id }
     assert_redirected_to descarte_path(assigns(:descarte))
   end
 

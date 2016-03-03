@@ -4,7 +4,7 @@
       <%= form_for(@role) do |f| %>
         <% if @role.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@libro.errors.count, "error") %> prohibited this libro from being saved:</h2>
+            <h2><%= pluralize(@libro.errors.count, "error") %> Verifique que todos los datos esten completos:</h2>
 
             <ul>
             <% @libro.errors.full_messages.each do |message| %>
@@ -14,11 +14,12 @@
           </div>
         <% end %>
   <div class="field">
-    <%= f.label :nomRole %><br>
-    <%= f.text_field :nomRole %>
+    <strong>Nombre del Rol</strong><br>
+    <%= f.text_field :nomRole, autofocus: true, class: "form-control" %>
   </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Aceptar", class: "btn btn-success" %>
   </div>
 <% end %>
     </div>

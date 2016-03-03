@@ -1,0 +1,39 @@
+<body class="color-blue">
+<% if current_user %>
+<% if can? :show, Evento %>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <p id="notice"><%= notice %></p>
+      <div class="jumbotron color-white2">
+        <div class="container">
+<p>
+  <strong class="orange">Autor:</strong>
+  <%= @suggestion.AutSug %>
+</p>
+
+<p>
+  <strong class="orange">Libro:</strong>
+  <%= @suggestion.LibSug %>
+</p>
+
+<p>
+  <strong class="orange">Cantidad:</strong>
+  <%= @suggestion.CantSug %>
+</p>
+
+<p>
+  <strong class="orange">Usuario:</strong>
+  <%= @suggestion.user.NomUs %>
+</p>
+
+</div>
+</div>
+</div>
+
+<%else%>
+<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+<%else%>
+<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+</body>

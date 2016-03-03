@@ -14,12 +14,15 @@ class Ability
      can [:show, :read], Descarte
      can [:show, :read], Evento
      can [:show, :read], Prestamo
+     can [:show, :read], Query
+     can [:show, :read], Suggestion
+     can [:create, :update, :destroy], Suggestion, :user_id => user.id
      can [:create, :update, :destroy], Query, :user_id => user.id
      can [:create, :update, :destroy], Descarte, :user_id => user.id
      can :create, Prestamo, :user_id => user.id
      can [:create, :update, :destroy], Evento, :user_id => user.id
 
-     #can :manage, Evento, :id => user.id    
+     #can :manage, Evento, :id => user.id
      #can :update, Evento, users: user.id
    else user.role_id == 3
     #si es es estudiante solo ver libro
@@ -27,5 +30,5 @@ class Ability
       can [:show, :read], Prestamo
       can [:create, :update], Prestamo, :user_id => user.id
     end
-  end 
+  end
 end

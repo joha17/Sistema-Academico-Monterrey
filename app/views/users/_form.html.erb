@@ -4,7 +4,7 @@
       <%= form_for(@user) do |f| %>
         <% if @user.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@user.errors.count, "error") %> Se encuentra un error con un espacion en blanco:</h2>
+            <h2><%= pluralize(@user.errors.count, "error") %> Verifique que todos los datos esten completos</h2>
 
             <ul>
             <% @user.errors.full_messages.each do |message| %>
@@ -13,7 +13,7 @@
             </ul>
           </div>
         <% end %>
-  
+
           <div class="form-group">
             <%= f.file_field :photo %>
           </div>
@@ -34,25 +34,23 @@
             <%= f.text_field :ApDosUs, autofocus: true, class: "form-control" %>
           </div>
           <div class="form-group">
-            <strong>Edad:</strong>
-            <%= f.text_field :edadUs, autofocus: true, class: "form-control" %>
+            <strong>Fecha de Nacimiento:</strong>
+            <%= f.date_select :FecNacUs, autofocus: true, class: "form-control" %>
           </div>
           <div class="form-group">
             <strong>Nivel:</strong>
             <%= f.text_field :FK_NivUs, autofocus: true, class: "form-control" %>
           </div>
           <div class="form-group">
-            <strong>Fecha de Salida:</strong>
-            <%= f.date_select :dt_salUs, autofocus: true, class: "form-control" %>
-          </div>
-          <div class="form-group">
             <strong>Seccion:</strong>
             <%= f.text_field :SecUs, autofocus: true, class: "form-control" %>
           </div>
+          <br>
          <div class="form--group">
           <strong>Role:</strong>
           <%= collection_select(:user, :role_id, Role.all, :id, :nomRole, prompt: true) %>
          </div>
+         <br>
           <div class="form-group">
             <strong>Telefono:</strong>
             <%= f.text_field :TelUs, autofocus: true, class: "form-control" %>
@@ -84,4 +82,3 @@
 <br>
 <br>
 <br>
-

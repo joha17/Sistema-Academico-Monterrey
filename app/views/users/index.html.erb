@@ -25,11 +25,11 @@
       <table class="table">
       <thead>
         <tr>
-          <th>Consulta</th>
-          <th>Descripción</th>
-          <th>Fecha</th>
-          <th>Usuario</th>
-          <th>Estado de Consilta</th>
+          <th>Nombre</th>
+          <th>1 Apellido</th>
+          <th>2 Apellido</th>
+          <th>Rol</th>
+          <th>Sección</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -52,7 +52,7 @@
               <td><%= link_to '', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning glyphicon glyphicon-trash" %></td>
             <%end%>
           </tr>
-        <% end %> 
+        <% end %>
 
       </tbody>
       </table>
@@ -60,6 +60,8 @@
   </div>
 </div>
   </div>
+
+
   <%else%>
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
   <%end%>

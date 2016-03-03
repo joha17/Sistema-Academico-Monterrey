@@ -15,9 +15,9 @@ class PrestamosController < ApplicationController
       format.html
       format.pdf do
         pdf = PrestamoPdf.new(@prestamo)
-        send_data pdf.render, filename: "prestamo_#{@prestamo.id}.pdf", 
+        send_data pdf.render, filename: "prestamo_#{@prestamo.id}.pdf",
         type: "application/pdf",
-        disposition: "inline" 
+        disposition: "inline"
       end
     end
   end
@@ -82,6 +82,6 @@ class PrestamosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prestamo_params
-      params.require(:prestamo).permit(:fecSol, :fecDev, :user_id, :libro_id, :prestamo_estado_id, :signatura_id, :seccion, :biblioteca, :nomSolic)
+      params.require(:prestamo).permit(:fecSol, :fecDev, :user_id, :libro_id, :prestamo_estado_id, :signatura_id, :seccion, :biblioteca, :nomSolic, :telSolic, :nomDocente)
     end
 end

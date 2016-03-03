@@ -26,6 +26,7 @@ class QueriesController < ApplicationController
   # POST /queries.json
   def create
     @query = Query.new(query_params)
+    @query.query_state_id = 1
     @query.user = current_user
 
     respond_to do |format|

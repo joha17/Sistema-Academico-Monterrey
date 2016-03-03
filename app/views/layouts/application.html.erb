@@ -19,7 +19,7 @@
   </head>
   <body>
 
- 
+
 
     <header>
       <%= render "layouts/header" %>
@@ -35,4 +35,7 @@
     <%= javascript_include_tag "application" %>
     <%= yield(:page_javascript) if content_for?(:page_javascript) %>
   </body>
+  <script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+  </script>
 </html>

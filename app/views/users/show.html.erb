@@ -6,6 +6,12 @@
       <p id="notice"><%= notice %></p>
       <div class="jumbotron">
         <div class="container">
+
+          <p>
+            <strong class="orange">Cedula:</strong>
+            <%= @user.CedUs %>
+          </p>
+
             <p>
               <strong class="orange">Nombre:</strong>
               <%= @user.NomUs %>
@@ -22,6 +28,11 @@
             </p>
 
             <p>
+              <strong class="orange">Fecha de Nacimiento:</strong>
+              <%= @user.FecNacUs%>
+            </p>
+
+            <p>
               <strong class="orange">Seccion:</strong>
               <%= @user.SecUs %>
             </p>
@@ -29,16 +40,6 @@
             <p>
               <strong class="orange">Rol:</strong>
               <%= @user.role.nomRole %>
-            </p>
-
-            <p>
-              <strong class="orange">Cedula:</strong>
-              <%= @user.CedUs %>
-            </p>
-
-            <p>
-              <strong class="orange">Edad:</strong>
-              <%= @user.edadUs %>
             </p>
 
             <p>
@@ -54,6 +55,11 @@
             <p>
               <strong class="orange">Fecha de Ingreso:</strong>
               <%= @user.created_at.strftime("%d-%m-%Y") %>
+            </p>
+
+            <p>
+              <strong class="orange">Email:</strong>
+              <%= @user.email %>
             </p>
             <br>
             <div class >

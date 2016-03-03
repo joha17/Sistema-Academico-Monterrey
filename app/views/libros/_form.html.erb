@@ -4,7 +4,7 @@
       <%= form_for(@libro) do |f| %>
         <% if @libro.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@libro.errors.count, "error") %> prohibited this libro from being saved:</h2>
+            <h2><%= pluralize(@libro.errors.count, "error") %> Verifique que todos los datos esten completos:</h2>
 
             <ul>
             <% @libro.errors.full_messages.each do |message| %>
@@ -16,7 +16,7 @@
 
         <div class="field">
           <strong>Numero de Inscripcion</strong><br>
-          <%= f.text_field :id, autofocus: true, class: "form-control" %>
+          <%= f.text_field :numInsc, autofocus: true, class: "form-control" %>
         </div>
         <br>
         <div class="field">
@@ -46,11 +46,6 @@
         </div>
         <br>
         <div class="field">
-          <strong>Fecha del libro</strong><br>
-          <%= f.datetime_select :FecLib, autofocus: true, class: "form-control" %>
-        </div>
-        <br>
-        <div class="field">
         <strong>Lugar del Libro</strong><br>
           <%= f.text_field :LugLib, autofocus: true, class: "form-control" %>
         </div>
@@ -72,7 +67,7 @@
         <br>
         <div class="field">
           <strong>Codigo Deway</strong><br>
-          <%= f.text_field :CodDewLib, autofocus: true, class: "form-control" %>
+          <%= f.text_area :CodDewLib, autofocus: true, class: "form-control" %>
         </div><br>
         <div class="text-center">
                 <%= f.submit "Aceptar", class: "btn btn-primary" %>

@@ -1,24 +1,26 @@
-<% if current_user %>
-<% if can? :show, Evento %>
-<div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
-      <p id="notice"><%= notice %></p>
-      <div class="jumbotron">
-        <div class="container">
-		<p>
-		  <strong>Nombre de Editorial:</strong>
-		  <%= @editorial.NomEdi %>
-		</p>
-		<br>
-		<p><%= link_to "Volver a libros", libros_path %></p>
-		<p><%= link_to "Ir a la lista de Editoriales", editorials_path %></p>
-	</div>
-</div>
+<body class="color-blue">
+  <% if current_user %>
+  <% if can? :show, Evento %>
+  <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <p id="notice"><%= notice %></p>
+        <div class="jumbotron">
+          <div class="container">
+  		<p>
+  		  <strong class="orange">Nombre de Editorial:</strong>
+  		  <%= @editorial.NomEdi %>
+  		</p>
+  		<br>
+  		<p><%= link_to "Volver a libros", libros_path %></p>
+  		<p><%= link_to "Ir a la lista de Editoriales", editorials_path %></p>
+  	</div>
+  </div>
 
 
-<%else%>
-  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
-<%end%>
-<%else%>
-  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
-<%end%>
+  <%else%>
+    <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>
+  <%else%>
+    <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>
+</body>

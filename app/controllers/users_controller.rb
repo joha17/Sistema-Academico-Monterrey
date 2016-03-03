@@ -16,9 +16,9 @@ class UsersController < ApplicationController
       format.html
       format.pdf do
         pdf = CarnetPdf.new(@user)
-        send_data pdf.render, filename: "user_#{@user.id}.pdf", 
+        send_data pdf.render, filename: "user_#{@user.id}.pdf",
         type: "application/pdf",
-        disposition: "inline" 
+        disposition: "inline"
       end
     end
   end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     respond_to do |format|
-      if @user.save 
+      if @user.save
         format.html { redirect_to @user, success: 'El usuario fue almacenado correctamente' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
   end
 
   def info_user
-    
+
   end
 
   private
@@ -84,10 +84,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:CedUs, :NomUs, :ApUnoUs, :ApDosUs, :edadUs, :FK_NivUs, :dt_ingUs, :dt_salUs, :SecUs, :TelUs, :FK_DirUs, :password, :password_confirmation, :role_id, :photo, :dirUs)
+      params.require(:user).permit(:CedUs, :NomUs, :ApUnoUs, :ApDosUs, :FecNacUs, :FK_NivUs, :dt_ingUs, :dt_salUs, :SecUs, :TelUs, :FK_DirUs, :password, :password_confirmation, :email, :role_id, :dirUs)
     end
 end
-
-
-
-

@@ -4,7 +4,7 @@
       <%= form_for(@item) do |f| %>
         <% if @item.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+            <h2><%= pluralize(@item.errors.count, "error") %> Verifique que todos los datos esten completos:</h2>
 
             <ul>
             <% @item.errors.full_messages.each do |message| %>
@@ -33,7 +33,7 @@
           <strong>Cantidad</strong><br>
           <%= f.text_field :canItem, autofocus: true, class: "form-control"  %>
         </div>
-        <br>  
+        <br>
         <div class="field">
           <strong>Lugar</strong><br>
           <%= collection_select(:item, :place_id, Place.all, :id, :NomPlace, prompt: true) %>
@@ -49,7 +49,7 @@
           <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           </div>
           <%= link_to 'Agregar nuevo categoria', new_category_path, class: "orange"  %>
-          
+
         </div>
         <br><br>
         <div class="text-center">
@@ -59,4 +59,3 @@
     </div>
   </div>
 </div>
-

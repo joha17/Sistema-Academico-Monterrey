@@ -1,0 +1,64 @@
+<body class="color-blue">
+<% if current_user %>
+<% if can? :show, Suggestion %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <body class="background-index">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1 class="orange">Sugerencias</h1>
+    </div>
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="panel panel-default">
+      <!-- Default panel contents -->
+          <div class="panel-heading">
+          <div class="row">
+            <div class="col-md-1">
+        <%if can? :create, Suggestion %>
+          <%= link_to "", new_suggestion_path , class: "btn btn-success glyphicon glyphicon-plus" %>
+        <%end%>
+          </div>
+          </div>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Autor</th>
+                <th>Libro</th>
+                <th>Cantidad</th>
+                <th>Usuario</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @suggestions.each do |suggestion| %>
+                <tr>
+                  <td><%= suggestion.AutSug %></td>
+                  <td><%= suggestion.LibSug %></td>
+                  <td><%= suggestion.CantSug %></td>
+                  <td><%= suggestion.user.NomUs %></td>
+                  <td><%= link_to 'Show', suggestion %></td>
+                  <td><%= link_to 'Edit', edit_suggestion_path(suggestion) %></td>
+                  <td><%= link_to 'Destroy', suggestion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%else%>
+    <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+
+</body>

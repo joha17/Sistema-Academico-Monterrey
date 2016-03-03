@@ -45,11 +45,26 @@
           </p>
 
           <p>
+            <strong class="orange">Telefono Solicitante:</strong>
+            <%= @prestamo.telSolic %>
+          </p>
+
+          <p>
+            <strong class="orange">Telefono del usuario:</strong>
+            <%= @prestamo.user.TelUs %>
+          </p>
+
+          <p>
+            <strong class="orange">Nombre del docente:</strong>
+            <%= @prestamo.nomDocente %>
+          </p>
+
+          <p>
             <strong class="orange">Prestamo estado:</strong>
             <%= @prestamo.prestamo_estado.nomEstPres %>
           </p>
           <div class >
-            <p><%= link_to "Ir al listado de Prestamos", prestamos_path %></p> 
+            <p><%= link_to "Ir al listado de Prestamos", prestamos_path %></p>
             <%= link_to "Imprimir Prestamo", prestamo_path(@prestamo, format: "pdf", class: "btn btn-primary") %>
           </div>
         </div>

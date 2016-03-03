@@ -38,14 +38,11 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'prawn', '~> 2.0', '>= 2.0.2'
 
-gem 'twitter-bootswatch-rails', '~> 3.3.4'
-gem 'twitter-bootswatch-rails-helpers'
 gem 'therubyracer', '~> 0.12.2'
 
 gem 'will_paginate-bootstrap'
 gem 'will_paginate'
 
-gem 'bootstrap-modal-rails'
 
 #gem 'bootstrap-sass', '~> 3.3.5.1'
 

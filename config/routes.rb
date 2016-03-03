@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  
-  resources :comments
+
   resources :descartes
+  resources :suggestions
+  resources :comments
   resources :signaturas
   resources :eventos
   resources :roles
@@ -25,8 +26,8 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   resources :users
   get 'info_user_users' => "users#info_user", :as => :current_user_info
-  
-  
+
+
   patch 'users' => 'users#index', :as => :users_index
   #patch 'users#index'
 
@@ -36,7 +37,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-    
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

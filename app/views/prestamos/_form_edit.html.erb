@@ -4,7 +4,7 @@
       <%= form_for(@prestamo) do |f| %>
         <% if @prestamo.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@prestamo.errors.count, "error") %> prohibited this prestamo from being saved:</h2>
+            <h2><%= pluralize(@prestamo.errors.count, "error") %> Verifique que todos los datos esten completos:</h2>
 
             <ul>
             <% @prestamo.errors.full_messages.each do |message| %>
@@ -18,14 +18,14 @@
           <strong>Signtura</strong><br>
           <%= collection_select(:prestamo, :signatura_id, Signatura.all, :id, :nomSig, prompt: true) %>
         </div>
-       
+
         <br>
         <div class="field">
           <strong>Libro</strong><br>
           <%= collection_select(:prestamo, :libro_id, Libro.all, :id, :TitLib, prompt: true) %>
         </div>
-        
-        
+
+
         <div class="field">
           <strong>Nombre</strong><br>
           <%= f.text_field :nomSolic, autofocus: true, class: "form-control" %>
@@ -35,6 +35,17 @@
           <strong>Seccion</strong><br>
           <%= f.text_field :seccion, autofocus: true, class: "form-control" %>
         </div>
+
+        <div class="field">
+          <strong>Telefono del Solicitante</strong><br>
+          <%= f.text_field :telSolic, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Nombre del docente <p>En caso de que sea un estudiante</p></strong>
+          <%= f.text_field :nomDocente, autofocus: true, class: "form-control" %>
+        </div>
+
         <br>
         <% if can? :show, Prestamo %>
         <div class="field">

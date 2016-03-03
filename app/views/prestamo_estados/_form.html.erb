@@ -4,7 +4,7 @@
       <%= form_for(@prestamo_estado) do |f| %>
         <% if @prestamo_estado.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@libro.errors.count, "error") %> prohibited this libro from being saved:</h2>
+            <h2><%= pluralize(@libro.errors.count, "error") %> Verifique que todos los datos esten completos:</h2>
 
             <ul>
             <% @prestamo_estado.errors.full_messages.each do |message| %>
@@ -27,4 +27,3 @@
       <%= f.submit "Aceptar", class: "btn btn-primary" %>
   </div>
 <% end %>
-

@@ -70,6 +70,6 @@ class DescartesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def descarte_params
-      params.require(:descarte).permit(:obserDesc, :fechaDesc, :user_id, :signatura_id, :libro_id, :cantLibSug, :cantLibDes, :autLibSug, :titLibSug)
+      params.require(:descarte).permit(:ObsDesc, :CantLibDesc, :user_id, :libro_id, :signatura_id)
     end
 end

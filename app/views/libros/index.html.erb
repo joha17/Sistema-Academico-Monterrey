@@ -43,7 +43,7 @@
           <tbody>
             <% @libros.each do |libro| %>
               <tr>
-                <td><%= libro.id %></td>
+                <td><%= libro.numInsc %></td>
                 <td><%= libro.TitLib %></td>
                 <td><%= libro.AutLib %></td>
                 <td><%= libro.editorial.NomEdi %></td>
@@ -84,5 +84,3 @@
   <div class="alert alert-danger" role="alert">No estas Autorizado</div>
 <%end%>
 </body>
-  
-
