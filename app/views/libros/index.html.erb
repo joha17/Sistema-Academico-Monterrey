@@ -20,11 +20,6 @@
             </div>
           </div>
 
-          <%= form_tag(libros_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Busque el titulo del libro" %>
-            <%= submit_tag "Buscar" %>
-          <% end %>
-
           <table class="table">
           <thead>
             <tr>
@@ -70,9 +65,8 @@
     </div>
   </div>
 </div>
-<div class="text-center">
-  <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
-</div>
+
+
 
 
 

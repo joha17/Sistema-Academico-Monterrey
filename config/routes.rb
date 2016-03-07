@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :roles
   resources :prestamos
   resources :prestamo_estados
-  resources :libros
+  resources :libros do
+    get :autocomplete_libro_TitLib, on: :collection
+  end
   resources :editorials
   resources :queries do
     resources :comments
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   resources :items
   resources :categories
   resources :places
+
 
 
 

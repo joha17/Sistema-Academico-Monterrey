@@ -1,5 +1,6 @@
 class PrestamosController < ApplicationController
   before_action :set_prestamo, only: [:show, :edit, :update, :destroy]
+  autocomplete :libro, :TitLib
 
   # GET /prestamos
   # GET /prestamos.json

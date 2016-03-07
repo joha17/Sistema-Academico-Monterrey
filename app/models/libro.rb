@@ -8,10 +8,5 @@ class Libro < ActiveRecord::Base
   validates :EdicLib, presence: true
   validates :numInsc, presence: true
   validates :CodDewLib, presence: true
-  
-
-  def self.search(search)
-  	where("TitLib LIKE ?", "%#{search}%")
-  end
 
 end

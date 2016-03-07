@@ -21,10 +21,6 @@
             </div>
             </div>
 
-          <%= form_tag(items_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Busque el articulo aqui" %>
-            <%= submit_tag "Buscar" %>
-          <% end %>
 
             <table class="table">
         <thead>
@@ -80,5 +76,5 @@
 <%end%>
 
 
-          
+
 </body>

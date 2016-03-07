@@ -4,12 +4,7 @@ class LibrosController < ApplicationController
   # GET /libros
   # GET /libros.json
   def index
-    if params[:search]
-      @libros = Libro.paginate(page: params[:page],:per_page => 15).search(params[:search]).order("created_at DESC")
-    else
-      @libros = Libro.paginate(page: params[:page],:per_page => 15).all.order('created_at DESC')
-    end
-    #@libros = Libro.paginate(:page => params[:page], :per_page => 15)
+     @libros = Libro.all.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /libros/1
@@ -67,7 +62,7 @@ class LibrosController < ApplicationController
   end
 
   def libro_descarte
-    
+
   end
 
   private
