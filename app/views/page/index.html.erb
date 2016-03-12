@@ -1,0 +1,19 @@
+<body class="background-index">
+<div class="text-center">
+  <div class="jumbotron opaco">
+      <div class="container-fluid">
+        <h1>Escuela Monterrey</h1>
+        <h3 class="orange">Bienvenidos al sistema academico monterrey</h3>
+      </div>
+  </div>
+  <div class="container">
+    <% if current_user %>
+    <%else%>
+    <%= link_to "Iniciar Sesion", login_path, class: "btn btn-success" %>
+    <%end%>
+  </div>
+
+</div>
+
+
+</body>

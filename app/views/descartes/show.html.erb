@@ -1,0 +1,44 @@
+<body class="color-blue">
+<% if current_user %>
+<% if can? :show, Evento %>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <p id="notice"><%= notice %></p>
+      <div class="jumbotron color-white2">
+        <div class="container">
+
+          <p>
+            <strong class="orange">Obsdesc:</strong>
+            <%= @descarte.ObsDesc %>
+          </p>
+
+          <p>
+            <strong class="orange">Cantlibdesc:</strong>
+            <%= @descarte.CantLibDesc %>
+          </p>
+
+          <p>
+            <strong class="orange">User:</strong>
+            <%= @descarte.user.NomUs %> <%= @descarte.user.ApUnoUs %> <%= @descarte.user.ApDosUs %>
+          </p>
+
+          <p>
+            <strong class="orange">Libro:</strong>
+            <%= @descarte.libro.TitLib %>
+          </p>
+
+          <p>
+            <strong class="orange">Signatura:</strong>
+            <%= @descarte.signatura.nomSig %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+      <%else%>
+      <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+      <%end%>
+      <%else%>
+      <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+      <%end%>
+      </body>

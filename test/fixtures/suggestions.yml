@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  AutSug: MyString
+  LibSug: MyString
+  CantSug: MyString
+  user_id: 
+
+two:
+  AutSug: MyString
+  LibSug: MyString
+  CantSug: MyString
+  user_id: 

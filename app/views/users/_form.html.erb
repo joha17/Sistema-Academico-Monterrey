@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= form_for(@user) do |f| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> Verifique que todos los datos esten completos</h2>
+
+            <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+          <div class="form-group">
+            <%= f.file_field :photo %>
+          </div>
+          <div class="form-group">
+            <strong>Cedula:</strong>
+            <%= f.text_field :CedUs, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <strong>Nombre:</strong>
+            <%= f.text_field :NomUs, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <strong>Primer Apellido:</strong>
+            <%= f.text_field :ApUnoUs, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <strong>Segundo Apellido:</strong>
+            <%= f.text_field :ApDosUs, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <strong>Fecha de Nacimiento:</strong>
+            <%= f.date_select :FecNacUs, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <strong>Nivel:</strong>
+            <%= f.text_field :FK_NivUs, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <strong>Seccion:</strong>
+            <%= f.text_field :SecUs, autofocus: true, class: "form-control" %>
+          </div>
+          <br>
+         <div class="form--group">
+          <strong>Role:</strong>
+          <%= collection_select(:user, :role_id, Role.all, :id, :nomRole, prompt: true) %>
+         </div>
+         <br>
+          <div class="form-group">
+            <strong>Telefono:</strong>
+            <%= f.text_field :TelUs, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <strong>Direccion:</strong>
+            <%= f.text_area :dirUs, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <strong>Email:</strong>
+            <%= f.text_field :email, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <strong>Contraseña:</strong>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <strong>Confirme su conraseña:</strong>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+          </div>
+         <div class="text-center">
+          <%= f.submit "Aceptar", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+      </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>

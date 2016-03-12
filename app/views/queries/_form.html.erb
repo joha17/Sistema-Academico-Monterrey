@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= form_for(@query) do |f| %>
+        <% if @query.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@query.errors.count, "error") %> prohibited this query from being saved:</h2>
+
+            <ul>
+            <% @query.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <strong>Nombre del Consulta</strong><br>
+          <%= f.text_field :NomCon, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+        <strong>Informcacion solicitada</strong><br>
+          <%= f.text_area :info_solic, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Proposito</strong><br>
+          <%= f.radio_button :propCons, 'Conferencia' %>
+          <%= f.label :propCons, 'Conferencia', :value => 'Conferencia', class:"orange" %>
+          <%= f.radio_button :propCons, 'Investigacion' %>
+          <%= f.label :propCons, 'Investigacion', :value => 'Investigacion', class:"orange" %>
+          <%= f.radio_button :propCons, 'Otro' %>
+          <%= f.label :propCons, 'Otro', :value => 'Otro', class:"orange" %>
+        </div> <br>
+        <div class="field">
+          <strong>Signatura</strong><br>
+          <%= collection_select(:query, :signatura_id, Signatura.all, :id, :nomSig, prompt: true) %>
+          <%= link_to "Agregar Nueva Signatura", signaturas_path, class: "orange" %>
+        </div><br>
+        <div class="field">
+          <strong>Libros Consultados</strong><br>
+          <%= f.text_area :libCons, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Nombre del Lector</strong><br>
+          <%= f.text_field :nomLec, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Seccion</strong><br>
+          <%= f.text_field :seccion, autofocus: true, class: "form-control" %>
+        </div><br>
+        <div class="field">
+          <strong>Para que dia necesita la informacion</strong><br>
+          <%= f.date_select :FecCon, autofocus: true, class: "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>Consulte lo siguiente</strong><br>
+          <%= f.text_area :DesCon, autofocus: true, class: "form-control" %>
+        </div><br>
+        <br><br>
+        <div class="text-center">
+                <%= f.submit "Aceptar", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>

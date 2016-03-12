@@ -1,0 +1,45 @@
+<%= form_for(@suggestion) do |f| %>
+  <% if @suggestion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@suggestion.errors.count, "error") %> Verifique que todos los datos esten completos:</h2>
+
+      <ul>
+      <% @suggestion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-10 col-sm-offset-1">
+
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+        <div class="panel-heading">
+        <div class="row">
+          <div class="col-md-3">
+            <h4>Sugiero Adquirir</h4>
+          </div>
+        </div>
+      </div>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Autor</th>
+            <th>Libro</th>
+            <th>Cantidad</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <td><%= f.text_field :AutSug, autofocus: true, class: "form-control"%></td>
+          <td><%= f.text_field :LibSug,  autofocus: true, class: "form-control"%></td>
+          <td><%= f.text_field :CantSug, autofocus: true, class: "form-control" %></td>
+        </tbody>
+        </table>
+      </div>
+      <div class="text-center">
+        <%= f.submit "Aceptar", class: "btn btn-primary" %>
+      </div
+
+<% end %>

@@ -1,0 +1,26 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= form_for(@query_state) do |f| %>
+        <% if @query_state.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@query_state.errors.count, "error") %> Verifique que todos los datos esten completos:</h2>
+
+            <ul>
+            <% @query_state.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+  <div class="field">
+    <strong>Nombre del estado de la consulta </strong><br>
+    <%= f.text_field :DeState, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Aceptar", class: "btn btn-success" %>
+  </div>
+<% end %>

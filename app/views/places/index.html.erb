@@ -1,0 +1,58 @@
+<body class="color-blue">
+
+</body>
+<% if current_user %>
+<% if can? :show, Place %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1 class="orange">Lugar en la institucion</h1>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+      <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-1">
+    <%if can? :create, Place %>
+      <%= link_to "", new_place_path , class: "btn btn-success glyphicon glyphicon-plus" %>
+    <%end%>
+      </div>
+      </div>
+      </div>
+      <table class="table">
+  <thead>
+    <tr>
+      <th>Nombre de Lugar</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @places.each do |place| %>
+      <tr>
+        <td><%= place.NomPlace %></td>
+        <td><%= link_to '', place, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
+        <td><%= link_to '', edit_place_path(place), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
+        <td><%= link_to '', place, method: :delete, class: "btn btn-warning glyphicon glyphicon-trash", data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<br>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>

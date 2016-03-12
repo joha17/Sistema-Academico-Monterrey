@@ -1,0 +1,69 @@
+<body class="color-blue">
+  <% if current_user %>
+<% if can? :show, Descarte %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1>Descarte de Libros</h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <div class="panel panel-default">
+  <!-- Default panel contents -->
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-md-1">
+                <%if can? :create, Descarte %>
+                  <%= link_to "", new_descarte_path , class: "btn btn-success glyphicon glyphicon-plus" %>
+                <%end%>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body fixed-panel">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Autor</th>
+                  <th>Titulo del libro</th>
+                  <th>Cantidad</th>
+                  <th>Usuario</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @descartes.each do |descarte| %>
+                <tr>
+                  <td><%= descarte.libro.AutLib %></td>
+                  <td><%= descarte.libro.TitLib %></td>
+                  <td><%= descarte.CantLibDesc %></td>
+                  <td><%= descarte.user.NomUs %></td>
+                  <% if can? :read, Evento %>
+                    <td><%= link_to '', descarte, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
+                  <% end %>
+                  <% if can? :update, descarte %>
+                    <td><%= link_to '', edit_descarte_path(descarte), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
+                  <% end %>
+                  <% if can? :destroy, descarte %>
+                    <td><%= link_to '', descarte, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning glyphicon glyphicon-trash" %></td>
+                  <% end %>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+</body>

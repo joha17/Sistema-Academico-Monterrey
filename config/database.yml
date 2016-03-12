@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: sibicoin_development
+  pool: 5
+  username: postgres
+  password: megapanza17
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: sibicoin_test
+  pool: 5
+  username: postgres
+  password: megapanza17
+  host: localhost

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ObsDesc: MyText
+  CantLibDesc: 1
+  user_id: 
+  libro_id: 
+  signatura_id: 
+
+two:
+  ObsDesc: MyText
+  CantLibDesc: 1
+  user_id: 
+  libro_id: 
+  signatura_id: 

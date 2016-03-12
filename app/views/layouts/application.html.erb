@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuela Monterrey</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    "application", media: "all", 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  </head>
+  <body>
+
+    <header>
+      <%= render "layouts/header" %>
+    </header>
+
+    <% flash.each do |type, message| %>
+          <div class="alert alert-info fade-in">
+              <button class="close" data-dismiss="alert">X</button>
+              <%= message %>
+          </div>
+        <% end %>
+
+    <%= yield %>
+
+    <%= render "layouts/footer" %>
+
+
+  </body>
+  <script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+  </script>
+</html>

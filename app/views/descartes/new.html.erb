@@ -1,0 +1,18 @@
+<body class="color-blue">
+<% if current_user %>
+<% if can? :create, Descarte%>
+<div class="text-center">
+	<h2 class="orange">Nuevo Descarte</h2>
+</div>
+
+<%= render 'form' %>
+
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+</body>

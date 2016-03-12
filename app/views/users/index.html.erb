@@ -1,0 +1,74 @@
+<body class="color-blue">
+  <% if current_user %>
+<% if can? :show, User %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1 class="orange">Usuarios</h1>
+    </div>
+    <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-md-1">
+            <%if can? :create, User %>
+              <%= link_to "", new_user_path , class: "btn btn-success glyphicon glyphicon-plus" %>
+            <%end%>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body fixed-panel">
+        <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>1 Apellido</th>
+            <th>2 Apellido</th>
+            <th>Rol</th>
+            <th>Sección</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.NomUs %></td>
+              <td><%= user.ApUnoUs %></td>
+              <td><%= user.ApDosUs %></td>
+              <td><%= user.role.nomRole %></td>
+              <td><%= user.SecUs %></td>
+              <% if can? :show, User %>
+                <td><%= link_to '', user, class: "btn btn-primary glyphicon glyphicon-eye-open" %></td>
+              <% end %>
+              <% if can? :update, User %>
+                <td><%= link_to '', edit_user_path(user), class: "btn btn-info glyphicon glyphicon-pencil" %></td>
+              <% end %>
+              <% if can? :delete, User %>
+                <td><%= link_to '', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning glyphicon glyphicon-trash" %></td>
+              <%end%>
+            </tr>
+          <% end %>
+
+        </tbody>
+        </table>
+
+      </div>
+          </div>
+  </div>
+</div>
+  </div>
+
+
+  <%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>
+<%else%>
+<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>
+</body>

@@ -1,0 +1,13 @@
+<body class="color-blue">
+  <% if current_user %>
+  <div class="text-center">
+    <h1 class="orange">Nuevo Estado de consulta</h1>
+    <br>
+    <%= render 'form' %>
+
+  </div>
+
+  <%else%>
+    <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <%end%>
+</body>

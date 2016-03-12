@@ -1,0 +1,73 @@
+<body class="color-blue">
+  <% if current_user %>
+<% if can? :show, Libro %>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="jumbotron">
+        <div class="container">
+
+           <div class="page-header">
+            <h1><%= @libro.TitLib %><small> <%= @libro.AutLib %></small></h1>
+          </div>
+
+          <p>
+            <strong class="orange">Numero de Inscripcion:</strong>
+            <%= @libro.numInsc %>
+          </p>
+
+          <p>
+            <strong class="orange">Editorial:</strong>
+            <%= @libro.editorial.NomEdi %>
+          </p>
+
+          <p>
+            <strong class="orange">Edición:</strong>
+            <%= @libro.EdicLib %>
+          </p>
+
+          <p>
+            <strong class="orange">Año:</strong>
+            <%= @libro.AnioLib %>
+          </p>
+
+          <p>
+            <strong class="orange">Lugar del libro:</strong>
+            <%= @libro.LugLib %>
+          </p>
+
+          <p>
+            <strong class="orange">Observaciónes:</strong>
+            <%= @libro.ObsLib %>
+          </p>
+
+          <p>
+            <strong class="orange">Descripción:</strong>
+            <%= @libro.DesLib %>
+          </p>
+
+          <p>
+            <strong class="orange">Cantridad:</strong>
+            <%= @libro.CantLib %>
+          </p>
+
+          <p>
+            <strong class="orange">Codígo Deway:</strong>
+            <%= @libro.CodDewLib %>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+
+<%else%>
+<div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+
+<%else%>
+  <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+<%end%>
+</body>

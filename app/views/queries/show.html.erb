@@ -1,0 +1,95 @@
+<body class="color-blue">
+<% if current_user %>
+<% if can? :show, Query %>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="jumbotron">
+        <div class="container">
+
+           <div class="page-header">
+            <h1><%= @query.NomCon %><small> <%= @query.user.NomUs %></small></h1>
+          </div>
+            <p>
+              <strong class="orange">Tema:</strong>
+              <%= @query.NomCon %>
+            </p>
+
+            <p>
+              <strong class="orange">Información Solicitada:</strong>
+              <%= @query.info_solic %>
+            </p>
+
+            <p>
+              <strong class="orange">Proposito:</strong>
+              <%= @query.propCons %>
+            </p>
+
+            <p>
+              <strong class="orange">Asignatura:</strong>
+              <%= @query.signatura.nomSig %>
+            </p>
+
+            <p>
+              <strong class="orange">Libros consultados:</strong>
+              <%= @query.NomCon %>
+            </p>
+
+            <p>
+              <strong class="orange">Sección:</strong>
+              <%= @query.seccion %>
+            </p>
+
+            <p>
+              <strong class="orange">Para que día necesita la inforamación:</strong>
+              <%= @query.FecCon.strftime("%d-%m-%Y") %>
+            </p>
+
+            <p>
+              <strong class="orange">Consulte la información solicitada</strong>
+              <%= @query.DesCon %>
+            </p>
+
+            <p>
+              <strong class="orange">Usuario:</strong>
+              <%= @query.user.NomUs %> <%= @query.user.ApUnoUs %> <%= @query.user.ApDosUs %>
+            </p>
+
+            <p>
+              <strong class="orange">Estado Consulta:</strong>
+              <%= @query.query_state.DeState %>
+            </p>
+            <p><%= link_to 'Ir a la lista de Consultas', queries_path %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+
+  <div class="field text-center">
+    <h3>Respuestas</h3>
+    <ul>
+      <% @query.comments.each do |comment| %>
+      <li class="orange">
+        <%= comment.user.NomUs %>: <%= comment.body %>
+        <p>
+          <%= link_to 'Eiminar', comment, method: :delete, class: "white", data: { confirm: 'Are you sure?' } %> |
+          <%= link_to 'Editar', edit_comment_path(comment), class: "white" %>
+        </p>
+      </li>
+      <% end %>
+      <br><br>
+    </ul>
+    <%= render "comments/form" %>
+  </div>
+
+
+    <br><br><br><br>
+
+  <%else%>
+    <div class="alert alert-danger" role="alert">No estas Autorizado</div>
+  <% end %>
+  <% end %>
+</body>
