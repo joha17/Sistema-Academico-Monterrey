@@ -1,28 +1,33 @@
-== README
+# Biblioteca: Aplicación de Gestión de Libros
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Descripción
 
-Things you may want to cover:
+Esta es una aplicación web para la gestión de libros en una biblioteca. Permite a los usuarios añadir, editar, eliminar y buscar libros, así como gestionar la disponibilidad y el préstamo de los mismos.
 
-* Ruby version
+## Características
 
-* System dependencies
+- **Gestión de Libros**: Añadir, editar y eliminar libros.
+- **Búsqueda y Filtrado**: Buscar libros por título, autor, género y disponibilidad.
+- **Gestión de Préstamos**: Registrar préstamos y devoluciones de libros.
+- **Interfaz Amigable**: Navegación sencilla y accesible para todos los usuarios.
 
-* Configuration
+## Tecnologías Utilizadas
 
-* Database creation
+- **Ruby**: Lenguaje de programación.
+- **Rails 4**: Framework para desarrollar la aplicación web.
+- **SQLite**: Base de datos utilizada para almacenamiento de datos.
+- **Bootstrap**: Para el diseño y la interfaz de usuario.
 
-* Database initialization
+## Requisitos
 
-* How to run the test suite
+- Ruby >= 2.0
+- Rails >= 4.0
+- SQLite3
 
-* Services (job queues, cache servers, search engines, etc.)
+## Instalación
 
-* Deployment instructions
+1. Clona el repositorio:
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+   ```bash
+   git clone https://github.com/tu_usuario/biblioteca-gestor-libros.git
+   cd biblioteca-gestor-libros
