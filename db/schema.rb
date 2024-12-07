@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123110528) do
+ActiveRecord::Schema.define(version: 20151123080427) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "nomCategory"
@@ -19,16 +19,6 @@ ActiveRecord::Schema.define(version: 20151123110528) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  create_table "consults", force: :cascade do |t|
-    t.string   "NomConsulta"
-    t.text     "DesConsulta"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "consults", ["user_id"], name: "index_consults_on_user_id"
 
   create_table "editorials", force: :cascade do |t|
     t.string   "NomEdi"
@@ -46,21 +36,6 @@ ActiveRecord::Schema.define(version: 20151123110528) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "items", force: :cascade do |t|
-    t.string   "nomItem"
-    t.text     "desItem"
-    t.integer  "canItem"
-    t.integer  "user_id"
-    t.integer  "place_id"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "items", ["category_id"], name: "index_items_on_category_id"
-  add_index "items", ["place_id"], name: "index_items_on_place_id"
-  add_index "items", ["user_id"], name: "index_items_on_user_id"
-
   create_table "libros", force: :cascade do |t|
     t.string   "TitLib"
     t.string   "AutLib"
@@ -76,14 +51,10 @@ ActiveRecord::Schema.define(version: 20151123110528) do
     t.integer  "editorial_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "NomEdi"
   end
 
   add_index "libros", ["editorial_id"], name: "index_libros_on_editorial_id"
-
-  create_table "line_items", id: false, force: :cascade do |t|
-    t.integer "id",                   null: false
-    t.integer "quantity", default: 1
-  end
 
   create_table "places", force: :cascade do |t|
     t.string   "NomPlace"
